@@ -1,0 +1,10 @@
+CRITICAL - 2022-04-20 08:48:13 --> Invalid file: welcome_message.php
+#0 D:\Applications\Dasboard-Reporting\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('welcome_message...')
+#1 D:\Applications\Dasboard-Reporting\backend\system\Common.php(1089): CodeIgniter\View\View->render('welcome_message', Array, true)
+#2 D:\Applications\Dasboard-Reporting\backend\app\Controllers\Home.php(9): view('welcome_message')
+#3 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#4 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Applications\Dasboard-Reporting\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 D:\Applications\Dasboard-Reporting\backend\system\Commands\Server\rewrite.php(43): require_once('D:\\Applications...')
+#8 {main}

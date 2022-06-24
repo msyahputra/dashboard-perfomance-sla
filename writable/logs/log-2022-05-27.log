@@ -1,0 +1,50 @@
+CRITICAL - 2022-05-27 21:10:35 --> Invalid file: qmscore/indihome.php
+#0 C:\xampp\htdocs\backend\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('qmscore/indihom...')
+#1 C:\xampp\htdocs\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('qmscore/indihom...', Array, true)
+#2 C:\xampp\htdocs\backend\backend\app\Controllers\QmScore.php(19): view('qmscore/indihom...')
+#3 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(832): App\Controllers\Qmscore->indihome()
+#4 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qmscore))
+#5 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-05-27 22:28:53 --> Invalid file: qmscore/socmed.php
+#0 C:\xampp\htdocs\backend\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('qmscore/socmed....')
+#1 C:\xampp\htdocs\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('qmscore/socmed', Array, true)
+#2 C:\xampp\htdocs\backend\backend\app\Controllers\QmScore.php(34): view('qmscore/socmed')
+#3 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(832): App\Controllers\Qmscore->socmed()
+#4 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qmscore))
+#5 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-05-27 22:56:15 --> Invalid file: mystery_omni/email.php
+#0 C:\xampp\htdocs\backend\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('mystery_omni/em...')
+#1 C:\xampp\htdocs\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('mystery_omni/em...', Array, true)
+#2 C:\xampp\htdocs\backend\backend\app\Controllers\MysteryOmni.php(17): view('mystery_omni/em...')
+#3 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(832): App\Controllers\MysteryOmni->email()
+#4 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MysteryOmni))
+#5 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-05-27 23:41:52 --> Invalid file: resp_time/voice.php
+#0 C:\xampp\htdocs\backend\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('resp_time/voice...')
+#1 C:\xampp\htdocs\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('resp_time/voice', Array, true)
+#2 C:\xampp\htdocs\backend\backend\app\Controllers\RespTime.php(14): view('resp_time/voice')
+#3 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(832): App\Controllers\RespTime->voice()
+#4 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RespTime))
+#5 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}
+CRITICAL - 2022-05-27 23:44:19 --> Invalid file: resp_time/voice.php
+#0 C:\xampp\htdocs\backend\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('resp_time/voice...')
+#1 C:\xampp\htdocs\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('resp_time/voice', Array, true)
+#2 C:\xampp\htdocs\backend\backend\app\Controllers\RespTime.php(14): view('resp_time/voice')
+#3 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(832): App\Controllers\RespTime->voice()
+#4 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RespTime))
+#5 C:\xampp\htdocs\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}

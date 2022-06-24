@@ -1,0 +1,8 @@
+CRITICAL - 2022-05-11 01:24:51 --> Call to undefined method App\Models\ParameterModel::getNiila
+#0 D:\Applications\Dasboard-Reporting\backend\app\Controllers\DataVoice.php(37): CodeIgniter\Model->__call('getNiila', Array)
+#1 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(832): App\Controllers\DataVoice->index()
+#2 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataVoice))
+#3 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Applications\Dasboard-Reporting\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 D:\Applications\Dasboard-Reporting\backend\system\Commands\Server\rewrite.php(43): require_once('D:\\Applications...')
+#6 {main}

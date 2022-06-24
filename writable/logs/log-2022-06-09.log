@@ -1,0 +1,10 @@
+CRITICAL - 2022-06-09 04:54:08 --> Invalid file: notes.php
+#0 C:\xampp\htdocs\backend2\backend\backend\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('notes.php')
+#1 C:\xampp\htdocs\backend2\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('notes.php', Array, true)
+#2 C:\xampp\htdocs\backend2\backend\backend\app\Controllers\Notes.php(9): view('notes.php')
+#3 C:\xampp\htdocs\backend2\backend\backend\system\CodeIgniter.php(832): App\Controllers\Notes->index()
+#4 C:\xampp\htdocs\backend2\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Notes))
+#5 C:\xampp\htdocs\backend2\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\backend2\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\backend2\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#8 {main}

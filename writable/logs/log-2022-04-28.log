@@ -1,0 +1,12 @@
+CRITICAL - 2022-04-28 22:51:03 --> Undefined variable: books
+#0 D:\Applications\Dasboard-Reporting\backend\app\Views\data_tabels\voice.php(406): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'D:\\Applications...', 406, Array)
+#1 D:\Applications\Dasboard-Reporting\backend\system\View\View.php(210): include('D:\\Applications...')
+#2 D:\Applications\Dasboard-Reporting\backend\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\Applications\Dasboard-Reporting\backend\system\Common.php(1089): CodeIgniter\View\View->render('data_tabels/voi...', Array, true)
+#4 D:\Applications\Dasboard-Reporting\backend\app\Controllers\DataVoice.php(9): view('data_tabels/voi...')
+#5 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(832): App\Controllers\DataVoice->index()
+#6 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataVoice))
+#7 D:\Applications\Dasboard-Reporting\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Applications\Dasboard-Reporting\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 D:\Applications\Dasboard-Reporting\backend\system\Commands\Server\rewrite.php(43): require_once('D:\\Applications...')
+#10 {main}

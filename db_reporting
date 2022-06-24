@@ -1,0 +1,1520 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 06, 2022 at 12:45 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.20
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_reporting`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_detail_interaksi`
+--
+
+CREATE TABLE `tb_detail_interaksi` (
+  `id_detail_interaksi` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `detail_interaksi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_detail_interaksi`
+--
+
+INSERT INTO `tb_detail_interaksi` (`id_detail_interaksi`, `id_layanan`, `detail_interaksi`) VALUES
+(1, 1, 'Informasi Billing'),
+(2, 1, 'Informasi Paket'),
+(3, 1, 'Informasi PSB'),
+(4, 1, 'Informasi Pindah Alamat'),
+(5, 1, 'Informasi Produk'),
+(6, 1, 'Informasi Cabut Layanan'),
+(7, 1, 'Informasi Product Knowledge'),
+(8, 1, 'Komplain Gangguan Datin'),
+(9, 1, 'Komplain Gangguan Internet'),
+(10, 1, 'Komplain Gangguan Wifi-Id'),
+(11, 1, 'Komplain Gangguan IndiHome 2P'),
+(12, 1, 'Komplain Gangguan IndiHome 3P'),
+(13, 1, 'Komplain Gangguan IPTV'),
+(14, 1, 'Komplain Gangguan Telephony'),
+(15, 1, 'Permintaan Pindah Perangkat'),
+(16, 1, 'Permintaan Upgrade Paket'),
+(17, 1, 'Permintaan EBS'),
+(18, 1, 'Permintaan Cabut Layanan'),
+(19, 1, 'Permintaan PSB'),
+(20, 1, 'Permintaan Downgrade Paket');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_detail_non_conformity`
+--
+
+CREATE TABLE `tb_detail_non_conformity` (
+  `id_detail_non_conformity` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `detail_non_confirmity` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_detail_non_conformity`
+--
+
+INSERT INTO `tb_detail_non_conformity` (`id_detail_non_conformity`, `id_layanan`, `detail_non_confirmity`) VALUES
+(1, 1, 'Tidak melakukan Verifikasi sesuai SOP'),
+(2, 1, 'Tidak melakukan Identifikasi sesuai SOP'),
+(3, 1, 'Open Tiket tidak sesuai SOP (Pemilihan Syntomp, dll)'),
+(4, 1, 'Solusi yang diberikan tidak sesuai SOP'),
+(5, 1, 'Berbelit dalam menyampaikan informasi'),
+(6, 1, 'Menginfokan Summary kendala sebelum tiket laporan dibuat'),
+(7, 1, 'Menggunakan kalimat yang panjang'),
+(8, 1, 'Verifikasi tidak sesuai SOP'),
+(9, 1, 'Menanyakan nama pelanggan tidak di awal percakapan'),
+(10, 1, 'Solusi yang diberikan tidak sesuai SOP'),
+(11, 1, 'Tidak merespon pembicaraan pelanggan'),
+(12, 1, 'Hening'),
+(13, 1, 'Menggunakan jargon'),
+(14, 1, 'Intonasi dan Artikulasi'),
+(15, 1, 'Tidak melakukan identifikasi'),
+(16, 1, 'Memotong percakapan pelanggan'),
+(17, 1, 'Tidak menggunaan sapaan Bapak/Ibu'),
+(18, 1, 'Intonasi dan Artikulasi (Lazy voice, Nada meninggi, jutek, ketus dll)'),
+(19, 1, 'Tidak menanyakan kejelasan informasi dan penawaran bantuan lain'),
+(20, 1, 'Menggunakan bahasa gaul/jargon'),
+(21, 1, 'Terburu-buru, pengucapan terlalu cepat'),
+(22, 1, 'Memotong percakapan pelanggan'),
+(23, 1, 'Hold sebelum pelanggan memberi respon'),
+(24, 1, 'Pickup call > 3 detik'),
+(25, 1, 'Tanya berulang ulang ke pelanggan'),
+(26, 1, 'Terjadi hening > 3 detik'),
+(27, 1, 'Lazy voice,terbata-bata, ragu-ragu'),
+(28, 1, 'Penggunaan jargon keraguan eee, eem'),
+(29, 1, 'Tidak melakuan identifikasi secara benar & lengkap'),
+(30, 1, 'Tidak melakukan open tiket sesuai sop'),
+(31, 1, 'Panduan solusi awal tidak sesuai'),
+(32, 1, 'Opening & closing pengucapan waktu & standar kalimat tidak sesuai sop'),
+(33, 1, 'verifikasi tidak benar & lengkap'),
+(34, 1, 'Tidak infokan waktu estimasi hold & hold > 2 menit'),
+(35, 1, 'Open tiket tidak sesuai sop (pemilihan symptom & deskripsi tidak sesuai)'),
+(36, 1, 'Tidak infokan summary tiket laporan & SLA'),
+(37, 1, 'Solusi yang di berikan tidak sesuai'),
+(38, 1, 'Salah menyapa nama pelanggan'),
+(39, 1, 'Tidak mengucapkan Mohon Maaf Atas ketidaknyamanannya'),
+(40, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_jabatan`
+--
+
+CREATE TABLE `tb_jabatan` (
+  `id_jabatan` int(11) NOT NULL,
+  `jabatan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_jabatan`
+--
+
+INSERT INTO `tb_jabatan` (`id_jabatan`, `jabatan`) VALUES
+(1, 'SPV VOICE - INDIHOME'),
+(2, 'SPV SPBU-IMES-NMS'),
+(3, 'SPV DATIN-OMNI'),
+(4, 'SPV EMAIL-SOCMED'),
+(5, 'SPV TEAINER'),
+(6, 'SPV QA'),
+(7, 'TL VOICE-INDIHOME'),
+(8, 'TL SPBU-IMES-NMS'),
+(9, 'TL DATIN-OMNI'),
+(10, 'TL EMAIL-SOCMED'),
+(11, 'AGENT T1 VOICE'),
+(12, 'AGENT T2 INDIHOME'),
+(13, 'AGENT T2 INDIHOME VIOLET'),
+(14, 'AGENT T2 DATIN'),
+(15, 'AGENT DATIN VIOLET'),
+(16, 'AGENT OMNI/CARRING'),
+(17, 'AGENT T1 SOCMED'),
+(18, 'AGENT T1 EMAIL'),
+(19, 'AGENT T2 IMES'),
+(20, 'AGENT T2 NMS / PROAKTIF'),
+(21, 'AGENT T1 GLOBAL'),
+(22, 'AGENT T1 IP'),
+(23, 'TRAINER OFFICER'),
+(24, 'QCO SDA'),
+(25, 'DESK CONTROL'),
+(26, 'DOCUMENT CONTROL'),
+(27, 'QCO EOS'),
+(28, 'EOS'),
+(29, 'ADMIN OPS'),
+(30, 'OPERATION PLAN'),
+(31, 'AGENT T1 CHAT'),
+(32, 'AGENT SAP'),
+(33, 'INFRATEL'),
+(34, 'IT DIGITALISASI'),
+(35, 'TL GLOBAL'),
+(36, 'AGENT T2 COMCEN'),
+(37, 'AGENT T2 CARRING'),
+(38, 'TL DATIN - CARRING'),
+(39, 'SPV PRO AKTIF - IMES'),
+(40, 'TL PRO AKTIF - IMES'),
+(41, 'SUPPORT PANSOL'),
+(42, 'AGENT T2 PRO AKTIF'),
+(43, 'KOORDINATOR TENESA'),
+(44, 'SPV DATIN - CARING');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_karyawan`
+--
+
+CREATE TABLE `tb_karyawan` (
+  `id_karyawan` int(10) NOT NULL,
+  `parner` int(10) NOT NULL,
+  `id_jabatan` int(10) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  `site` varchar(255) NOT NULL,
+  `email` text NOT NULL,
+  `no_hp` varchar(255) NOT NULL,
+  `level` int(10) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_karyawan`
+--
+
+INSERT INTO `tb_karyawan` (`id_karyawan`, `parner`, `id_jabatan`, `full_name`, `site`, `email`, `no_hp`, `level`, `password`, `image`) VALUES
+(1, 3413, 2, 'IRMA MUTIA', 'SEMARANG', 'irmamutia14@gmail.com', '0821-11127416', 0, '', ''),
+(2, 11874, 19, 'WULANDARI', 'SEMARANG', 'shevawulandari@gmail.com', '0812-86410004', 0, '', ''),
+(3, 27998, 1, 'BAYU FIRMANSYAH', 'SEMARANG', 'firmansyahbayu@gmail.com', '0813-12349379', 0, '', ''),
+(4, 51460, 3, 'MOCH RIDWAN GUNAWAN', 'SEMARANG', 'moch.ridwan.gunawan@gmail.com', '81318588486', 0, '', ''),
+(5, 62266, 11, 'DARJAT SUDARJAT', 'SEMARANG', 'drazat24@gmail.com', '082113428528', 0, '', ''),
+(6, 62381, 19, 'DWI ASTRI GUSTINA', 'SEMARANG', 'dwia.gustina8099@gmail.com', '0813-90908099', 0, '', ''),
+(7, 62384, 19, 'RIDA WAHYU SAPUTRA', 'SEMARANG', 'ridawahyusaputra@gmail.com', '0852-16056856', 0, '', ''),
+(8, 64478, 35, 'INDHIKA ADRIANSHAH WIBOWO', 'SEMARANG', 'indhika.ink@gmail.com', '081212603698', 0, '', ''),
+(9, 72656, 19, 'SA\'ADIA TALAOHU', 'SEMARANG', 'dillatalaohu@gmail.com', '0812-18416227', 0, '', ''),
+(10, 76087, 24, 'CHOIRUNNISA', 'SEMARANG', 'icha.choirunnisa17@gmail.com', '0812-87612320', 0, '', ''),
+(11, 77611, 8, 'DWI CAHYANTO WIBOWO', 'SEMARANG', 'dwicahyanto2017@gmail.com', '081211538090', 0, '', ''),
+(12, 79430, 8, 'EMIA EDUINA BR SEMBIRING', 'SEMARANG', 'emiaeduina6@gmail.com', '081219872432', 0, '', ''),
+(13, 79432, 12, 'SATRIANI BR KARO SEKALI', 'SEMARANG', 'Satrikarosekali@gmail.com', '082165003737', 0, '', ''),
+(14, 79439, 16, 'REZA ALIANI PUTRA', 'SEMARANG', 'Alianireza@gmail.com', '081315727545', 0, '', ''),
+(15, 80821, 8, 'SRI YUDHO PINILIEH', 'SEMARANG', 'yudhoiyoed@gmail.com', '0812-90322728', 0, '', ''),
+(16, 80828, 10, 'MUHAMMAD HANIF', 'SEMARANG', 'hanif.muhammad181091@gmail.com', '0813-20458233', 0, '', ''),
+(17, 80830, 19, 'PANJI SATRIA BUNDA', 'SEMARANG', 'panjisatria.bunda@gmail.com', '0852-63053471', 0, '', ''),
+(18, 81353, 7, 'IQBAL PURNOMO', 'SEMARANG', 'iqbal.screamo28@gmail.com', '0821-68397070', 0, '', ''),
+(19, 82266, 24, 'ANGGI PUTRIANI PRASETYO', 'SEMARANG', 'anggiputriani17@yahoo.co.id', '0812-83066656', 0, '', ''),
+(20, 82279, 9, 'RUDI HARTONO', 'SEMARANG', 'rhudihartono@gmail.com', '0852-16056835', 0, '', ''),
+(21, 82284, 10, 'ADI MIFTAHUL FAUZI NUR ROHIM', 'SEMARANG', 'adifauzi210592@gmail.com', '0813-16640921', 0, '', ''),
+(22, 89259, 18, 'RINA WIJAYANTI', 'SEMARANG', 'rinawijaynti@gmail.com', '85751654370', 0, '', ''),
+(23, 99239, 8, 'CATUR WAHYU WIRAWAN', 'SEMARANG', 'caturwww@yahoo.com', '0821-10049336', 0, '', ''),
+(24, 110864, 24, 'FITRI ANI SIHALOHO', 'SEMARANG', 'fitrianisihaloho14@gmail.com', '82298737382', 0, '', ''),
+(25, 126165, 24, 'SONDANG BR SAGALA', 'SEMARANG', 'sagala.sondang@gmail.com', '082114750715', 0, '', ''),
+(26, 150076, 7, 'MUHAMMAD ALIQ AULIA', 'SEMARANG', 'muhammadaliq18@gmail.com', '0813-27072036', 0, '', ''),
+(27, 150077, 7, 'RIZKY MAYNARDA', 'SEMARANG', 'rizky-maynarda@yahoo.com', '0812-11007274', 0, '', ''),
+(28, 152391, 29, 'NOVIKA RATIH EKA KUMALA', 'SEMARANG', 'vikanovikaa90@gmail.com', '0812-25046510', 0, '', ''),
+(29, 153911, 19, 'AHMAD BAIHAQI ANNAZILY', 'SEMARANG', 'abay.benington@gmail.com', '0852-15420445', 0, '', ''),
+(30, 155159, 18, 'AZIZA DWI SAPUTRI', 'SEMARANG', 'azizasaputri6@gmail.com', '0813-14263212', 0, '', ''),
+(31, 155163, 14, 'JAN FERY HAISMA SINAGA', 'SEMARANG', 'haisma19@gmail.com', '0823-18256503', 0, '', ''),
+(32, 155896, 14, 'AWAL BAYU HARIYANTO', 'SEMARANG', 'awal.bayu23@gmail.com', '0821-10819609', 0, '', ''),
+(33, 157534, 9, 'IRFANSHAH KARIM', 'SEMARANG', 'irfanshahkarim17@gmail.com', '0813-85689756', 0, '', ''),
+(34, 157538, 7, 'QADRYANSYAH NOOR', 'SEMARANG', 'qadryansyahnoor@gmail.com', '0822-10871742', 0, '', ''),
+(35, 157542, 24, 'YOLANDA ERZIANA', 'SEMARANG', 'yolandaerziana@gmail.com', '0822-18332279', 0, '', ''),
+(36, 157544, 19, 'MAULANA ADITYA KHANDALAWI', 'SEMARANG', 'maulana.aditya000@gmail.com', '0822-73357520', 0, '', ''),
+(37, 157546, 25, 'MUHAMAD RIVALDI', 'SEMARANG', 'muhamadrivaldi93@gmail.com', '0812-12210287', 0, '', ''),
+(38, 159046, 23, 'HERLINA', 'SEMARANG', 'elin.satchzi@gmail.com', '0813-80288841', 0, '', ''),
+(39, 160120, 16, 'MUHAMMAD RIZKI HIDAYAH', 'SEMARANG', 'mhidayaturizky@gmail.com', '085256695268', 0, '', ''),
+(40, 160538, 10, 'EGI IHSAN', 'SEMARANG', 'ihsanuegi@gmail.com', '0852-65407587', 0, '', ''),
+(41, 160545, 7, 'MUHAMAD NUR AZIIZ', 'SEMARANG', 'aziiz644@gmail.com', '0812-97212820', 0, '', ''),
+(42, 160548, 12, 'TOPAN BUNGARAN', 'SEMARANG', 'topanbungaran05@gmail.com', '0812-95925064', 0, '', ''),
+(43, 160782, 9, 'KAHFI MUNAJAT', 'SEMARANG', 'kahfimunajat.skom@gmail.com', '0812-81720506', 0, '', ''),
+(44, 161252, 14, 'MUHAMAD IQBAL PURNAMA YUSUF', 'SEMARANG', 'iqbalpurnama1515@gmail.com', '08111196915', 0, '', ''),
+(45, 161668, 12, 'NIMA PAGAR INTAN DAMANIK', 'SEMARANG', 'nimapagar104@gmail.com', '081331056006', 0, '', ''),
+(46, 170113, 11, 'MUHAMMAD IHSAN PRABAWA', 'SEMARANG', 'muhammadihsanprabawa@gmail.com // muhammadihsanryutaro@yahoo.com', '089516053715', 0, '', ''),
+(47, 170640, 14, 'DHEVI LARASATI', 'SEMARANG', 'dhevilarasati97@gmail.com', '082116223599', 0, '', ''),
+(48, 170641, 12, 'RUMBAR DEWI RIANAWATI', 'SEMARANG', 'rumbardew@gmail.com', '085228400524', 0, '', ''),
+(49, 170643, 14, 'RISTI YULIANA', 'SEMARANG', 'ristyuliana@gmail.com', '081391639649', 0, '', ''),
+(50, 170644, 14, 'FIRNANDA NOVITASARI', 'SEMARANG', 'frnndnvtsr@gmail.com', '081288004852', 0, '', ''),
+(51, 170645, 14, 'ANWAR LUDFIANTO', 'SEMARANG', 'anwarnagato@gmail.com', '081217128291', 0, '', ''),
+(52, 170646, 19, 'MUJAHID BASYIRUDDIN', 'SEMARANG', 'mujahidbasyiruddin@gmail.com', '085259449439', 0, '', ''),
+(53, 170647, 18, 'REIZA RAHMAAJI RAHARJA', 'SEMARANG', 'raharjareiza18@gmail.com', '081328080591', 0, '', ''),
+(54, 170648, 18, 'LUQMAN NURFAJRI', 'SEMARANG', 'L.nurfajri@gmail.com', '082164691689', 0, '', ''),
+(55, 170649, 25, 'RAYYAN MUCHLIS BHAKTI N', 'SEMARANG', 'nusantarayyan03@gmail.com', '082231387287', 0, '', ''),
+(56, 170650, 14, 'AQSHA ASTARYAN PRATAMA', 'SEMARANG', 'aqshaastaryan02@gmail.com', '081227918913', 0, '', ''),
+(57, 170652, 19, 'HANA NIBROSA', 'SEMARANG', 'hananibrosa88@gmail.com', '082133779497', 0, '', ''),
+(58, 170653, 23, 'REGITA RATIH PRAMESTIWI', 'SEMARANG', 'regitaratihp@gmail.com', '082138152235', 0, '', ''),
+(59, 170654, 12, 'ADE RIYANI', 'SEMARANG', 'aderiyani00@gmail.com', '082138152236', 0, '', ''),
+(60, 170655, 19, 'ATMOJO', 'SEMARANG', 'jojoatmojo95@gmail.com', '081328080774', 0, '', ''),
+(61, 170657, 19, 'BAGAS WAHYU WIJAYA', 'SEMARANG', 'bagaswahyuwijaya@gmail.com', ' 081329366265', 0, '', ''),
+(62, 170658, 24, 'AHMAD CHANDRA KURNIAWAN', 'SEMARANG', 'ahmadchandra42@gmail.com', '085230661810', 0, '', ''),
+(63, 171064, 12, 'FINTA INTAN PURBA', 'SEMARANG', 'fintaintan@yahoo.com', '082119381208', 0, '', ''),
+(64, 172488, 30, 'IWAN SETIAWAN ABIDIN', 'SEMARANG', 'iwanadmfinance@gmail.com', '082135715298', 0, '', ''),
+(65, 172788, 23, 'GALIH SUKMA DWI PUTRA', 'SEMARANG', 'Galihsukmadwiputra09@gmail.com', '081283157235', 0, '', ''),
+(66, 173430, 12, 'RINA SHAHFRYNAH', 'SEMARANG', 'rina.shahfrynah53@gmail.com', '081218497162', 0, '', ''),
+(67, 173432, 18, 'ARUM SIH PANGESTU', 'SEMARANG', 'arumsp.13429024@gmail.com', '082134044916', 0, '', ''),
+(68, 173433, 12, 'RYSAWIJAYANTI PUTRI', 'SEMARANG', 'wijayantiputrirysa@gmail.com', '085641847039', 0, '', ''),
+(69, 173434, 12, 'MAULIDA FADIAH', 'SEMARANG', 'Maulidafadiah.unimus@gmail.com', '82227521111', 0, '', ''),
+(70, 173646, 12, 'MARGARET REVITA PRAMESTI', 'SEMARANG', 'margaretrevita@gmail.com', '81779298127', 0, '', ''),
+(71, 173648, 11, 'DIAH AYU RIZKY KUSUMA RAMADHANI', 'SEMARANG', 'diahayurizkkr30@gmail.com', '81357483803', 0, '', ''),
+(72, 174180, 14, 'ANGELICA DESTA RUDITE AJITAMA', 'SEMARANG', 'destardte@gmail.com', '082133794369', 0, '', ''),
+(73, 174182, 18, 'DWI KURNIAWATI LESTARI', 'SEMARANG', 'nialestary97@gmail.com', '08561458288', 0, '', ''),
+(74, 174183, 12, 'FIFI SEPTIVIA ALAYDA', 'SEMARANG', 'septiviafifi@gmail.com', '082243795322', 0, '', ''),
+(75, 174184, 16, 'NOORMALITA RETNO UTAMI', 'SEMARANG', 'noormalitaretno98@gmail.com', '089609628896', 0, '', ''),
+(76, 174185, 18, 'ORRYZA DWI JUNI AYUNINGTYAS', 'SEMARANG', 'shasaorryza13@gmail.com', '081329801863', 0, '', ''),
+(77, 174186, 9, 'RIZKY DWI HERGIANTITUS', 'SEMARANG', 'rizkydwih13@gmail.com', '082328855113', 0, '', ''),
+(78, 174187, 14, 'SINGGIH NUGROHO PUTRO', 'SEMARANG', 'Singgihnft@gmail.com', '085156260083', 0, '', ''),
+(79, 174188, 17, 'FAKIHUDIN', 'SEMARANG', 'fakihjun@gmail.com', '089668414519', 0, '', ''),
+(80, 174189, 17, 'HOPIE NIMAJA DJ', 'SEMARANG', 'hopienimajadj@gmail.com', '082146249263', 0, '', ''),
+(81, 174190, 11, 'IFFA DHIA ARIZA', 'SEMARANG', 'iffaariza@gmail.com', '081803798301', 0, '', ''),
+(82, 174191, 17, 'DANIEL RICARDO SOPATER', 'SEMARANG', 'ricardanil@gmail.com', '081228571559', 0, '', ''),
+(83, 174192, 12, 'DEVITA NURUL AINI', 'SEMARANG', 'devita.chpdrr@gmail.com', '081227770605', 0, '', ''),
+(84, 174193, 17, 'REZA SETIAWAN', 'SEMARANG', 'setiawanreza877@gmail.com', '087787751226', 0, '', ''),
+(85, 174194, 17, 'THOYIBAN ADI PUTRA', 'SEMRANG', 'Thoyiban027@gmail.com', '081327465165', 0, '', ''),
+(86, 174195, 17, 'DENI ISMAWAN', 'SEMARANG', 'yadnitnism@gmail.com', '085870881966', 0, '', ''),
+(87, 174196, 14, 'ABDURRAHMAN RIDHWAN', 'SEMARANG', 'rahmanabdur089@gmail.com', '081320493476', 0, '', ''),
+(88, 174197, 12, 'AFINI MAULANA', 'SEMARANG', 'afinimaulana45@mail.com', '083847400247', 0, '', ''),
+(89, 174198, 12, 'ASNI FEBRIANTI', 'SEMARANG', 'asnifebriantinurdin@gmail.com', '082296248131', 0, '', ''),
+(90, 174199, 12, 'DWI NURNAENI', 'SEMARANG', 'dwinurnaeni15@gmail.com', '0895370055870', 0, '', ''),
+(91, 174200, 12, 'HENI ISMIYATI', 'SEMARANG', 'ismiyatiheny@gmail.com', '085326719432', 0, '', ''),
+(92, 174202, 12, 'RANDY ADAM NASUTION', 'SEMARANG', 'randyadam94@gmail.com', '081214506225', 0, '', ''),
+(93, 174203, 17, 'RIFQI MAHFUZH', 'SEMARANG', 'rifqi249@gmail.com', '081293345767', 0, '', ''),
+(94, 174204, 12, 'SAIFUL HIDAYAH', 'SEMARANG', 'saifulhidayah354@gmail.com', '081326384022', 0, '', ''),
+(95, 174205, 14, 'SASTRI JENDRA AYUNINGRAT', 'SEMARANG', 'ayuningratsastri@gmail.com', '082257713833', 0, '', ''),
+(96, 174207, 17, 'TRI EKO SUSILO', 'SEMARANG', 'newsusilotrieko@gmail.com', '082222207078', 0, '', ''),
+(97, 174208, 17, 'WILDA SAFIRA', 'SEMARANG', 'wildasfr@gmail.com', '082145006871', 0, '', ''),
+(98, 175904, 18, 'A.EKA SAKTI PRATIWI', 'SEMARANG', 'andiekasakti@gmail.com', '081229911750', 0, '', ''),
+(99, 175906, 12, 'AVISKA AVITA SARI', 'SEMARANG', 'avitaaviska1@gmail.com', '087816359493', 0, '', ''),
+(100, 175907, 12, 'FIKI EKA SETIA PUTRI', 'SEMARANG', 'fikiekasetiaputri@gmail.com', '081916991482', 0, '', ''),
+(101, 175908, 18, 'LENY LUTFIANA AZHARI', 'SEMARANG', 'lenilutfiana256@gmail.com', '88216300761', 0, '', ''),
+(102, 175909, 12, 'LUTFI EFA OKTAVIANI', 'SEMARANG', 'lutfiefaoktaviani@gmail.com', '08112881024', 0, '', ''),
+(103, 175910, 18, 'MEILANI RAHAYUNINGRUM', 'SEMARANG', 'meilanirahayu77@gmail.com', '089669395515', 0, '', ''),
+(104, 175911, 11, 'MILLATUZZAHRINA', 'SEMARANG', 'Millatuzzahrina2@gmail.com', '85740083101', 0, '', ''),
+(105, 175912, 16, 'NI KADEK DIAH PARWATI', 'SEMARANG', 'nidiahparwati@gmail.com', '082123455745', 0, '', ''),
+(106, 175914, 19, 'ZUHDI ALVIAN', 'SEMARANG', 'zuhdialvian@gmail.com', '82247861266', 0, '', ''),
+(107, 176898, 12, 'HENDRA REZA HAVILDA', 'SEMARANG', 'hendrarezaaa11@gmail.com', '081392108841', 0, '', ''),
+(108, 176902, 12, 'PUJI LESTARI', 'SEMARANG', 'pujilestari961130@gmail.com', '082132474129', 0, '', ''),
+(109, 176903, 16, 'PANGKU RIZQI EKA SAPUTRA', 'SEMARANG', 'pangkusaputra22@gmail.com', '085329984369', 0, '', ''),
+(110, 176904, 12, 'RAIDATUL JANNAH', 'SEMARANG', 'raida.umami@gmail.com', '082261953993', 0, '', ''),
+(111, 176905, 12, 'MOCH QADRI ARIE SYAFITRAH', 'SEMARANG', 'arie.mayong@gmail.com', ' 08112999193', 0, '', ''),
+(112, 176906, 12, 'ADRIAN MUHAMMAD HUSEIN', 'SEMARANG', 'adrianmhusein2204@gmail.com', ' 082135510686', 0, '', ''),
+(113, 176908, 12, 'ANINDYA IFFA K', 'SEMARANG', 'anindyiffa.k@gmail.com', '081328941690', 0, '', ''),
+(114, 176909, 20, 'PUTERI TRIANA AUDINA', 'SEMARANG', 'puteriaudina11@gmail.com', '82225365046', 0, '', ''),
+(115, 176911, 18, 'CHINDYANA FEBBY UTAMI', 'SEMRANG', 'chindyanafebbyu@gmail.com', '8975003820', 0, '', ''),
+(116, 176912, 18, 'ADELA MURTI', 'SEMARANG', 'adeladmrt@gmail.com', '8999181233', 0, '', ''),
+(117, 176913, 12, 'RUCHI WILUTAMA', 'SEMARANG', 'ruchi.wilutama@gmail.com', '89658626182', 0, '', ''),
+(118, 176914, 12, 'HARIS FADILAH', 'SEMARANG', 'fadilahharis1903@gmail.com', '81250719877', 0, '', ''),
+(119, 176915, 12, 'NOVA SETYANINGRUM', 'SEMARANG', 'novasetyaningrum.ns@gmail.com', '85640012420', 0, '', ''),
+(120, 176916, 18, 'LINA NUR LATIFAH', 'SEMARANG', 'linanurlatifah@gmail.com', '85156075069', 0, '', ''),
+(121, 176917, 17, 'NUR ATIKAH', 'SEMARANG', 'atikahilda20@gmail.com', '81325121705', 0, '', ''),
+(122, 176922, 18, 'ROBBY NANDA SURIYANDA', 'SEMARANG', 'sir.obbynanda@gmail.com', '81219377944', 0, '', ''),
+(123, 176923, 17, 'MEY RIESTA SOARES', 'SEMARANG', 'meyrsoares5@gmail.com', '82387257253', 0, '', ''),
+(124, 176927, 11, 'MOCHAMAD RIZKI DWI PUTRO', 'SEMARANG', 'rizki.230995.putro.moch@gmail.com', '89699656970', 0, '', ''),
+(125, 176921, 12, 'DITA APRILIA', 'SEMARANG', 'ditaaprilia248@gmail.com', '83872871494', 0, '', ''),
+(126, 176928, 20, 'SASQIA AYU LESTARI', 'SEMARANG', 'sasqia.ayul@gmail.com', '82325248132', 0, '', ''),
+(127, 176929, 18, 'ANIDA FAZIA ZINI', 'SEMARANG', 'anidafazia13@gmail.com', '87767648619', 0, '', ''),
+(128, 176930, 20, 'AUGUST BUDIYANTO', 'SEMARANG', 'augustfitri451@gmail.com', '89638587861', 0, '', ''),
+(129, 176932, 11, 'AGUS YULIATIN', 'SEMARANG', 'a.yulizrc@gmail.com', '82298448677', 0, '', ''),
+(130, 176933, 11, 'OCHA BINAR ALIEFFI', 'SEMARANG', 'ocha.alieffi@gmail.com', '89501865721', 0, '', ''),
+(131, 176934, 11, 'ONY AKBAR MA\'RUF', 'SEMARANG', 'peankfight@gmail.com', '89649680938', 0, '', ''),
+(132, 176935, 45, 'MOCHAMAD FIRMAN ADRIANSYAH', 'SEMARANG', 'firmanadrian04@gmail.com', '88216542118', 0, '', ''),
+(133, 177508, 31, 'FALAH IBRAHIM YAZIDULHAQ', 'SEMARANG', 'yzdlhq@gmail.com', '89669203155', 0, '', ''),
+(134, 177509, 18, 'NOVITA SARI ARIFIN', 'SEMARANG', 'anovita34@gmail.com', '81297828033', 0, '', ''),
+(135, 177510, 12, 'ROBBY DHINI SETIAWAN', 'SEMARANG', 'robbydhinisetiawan@gmail.com', '86800560090', 0, '', ''),
+(136, 177512, 18, 'WAHYU ROKHMANA', 'SEMARANG', 'wahyurokhmana97@gmail.com', '87736459022', 0, '', ''),
+(137, 177513, 12, 'ALEXIUS YOGA PRIMADANA', 'SEMARANG', 'yogaalexius@gmail.com', '82226771795', 0, '', ''),
+(138, 177514, 18, 'ANISA KHUSNUL MASTUTI', 'SEMARANG', 'khusnulmastuti@gmail.com', '81220538152', 0, '', ''),
+(139, 177515, 18, 'DENI FITRIANI', 'SEMARAG', 'denifitri30198@gmail.com', '82235099378', 0, '', ''),
+(140, 177516, 31, 'INTAN PINILIH HANISTYA', 'SEMARANG', 'intanpinilih97@gmail.com', '85233059453', 0, '', ''),
+(141, 177517, 12, 'MANGGAR PRAWIRANINGPRANG', 'SEMARANG', 'manggarprawirap@gmail.com', '81325603456', 0, '', ''),
+(142, 177518, 31, 'SITI KOMARIYAH', 'SEMARANG', 'sitikomariyah2533@gmail.com', '82241405427', 0, '', ''),
+(143, 177519, 31, 'WILDAN AUDINA', 'SEMARANG', 'wildanaudina1997@gmail.com', '8,95415E+11', 0, '', ''),
+(144, 177520, 12, 'ACHMAD BAROJI', 'SEMARANG', 'ach.baroji@gmail.com', '81216074715', 0, '', ''),
+(145, 177521, 12, 'ADDAM IKHSAN ANJASMARA', 'SEMARANG', 'adamiksan54@gmail.com', '8,95379E+11', 0, '', ''),
+(146, 177522, 31, 'MOHAMAD EKO MEIZENI W.S', 'SEMARANG', 'eko.meizeni@gmail.com', '82324474516', 0, '', ''),
+(147, 177523, 18, 'EVA FEBIYANI', 'SEMARANG', 'evafebiyani@gmail.com', '81252381868', 0, '', ''),
+(148, 177524, 12, 'JULIUS MARIO', 'SEMARANG', 'juliusmario07@gmail.com', '89630987716', 0, '', ''),
+(149, 177525, 12, 'M UMAR SHOLEH', 'SEMARANG', 'usholeh01@gmail.com', '85155156198', 0, '', ''),
+(150, 177527, 12, 'RAHMAT AL HAFIZ', 'SEMARANG', 'rahmatalhafiz97@gmail.com', '82260624015', 0, '', ''),
+(151, 177528, 31, 'WENY IRMA SYAFRIL', 'SEMARANG', 'wennysyafril04@gmail.com', '81260405044', 0, '', ''),
+(152, 177529, 31, 'WIND SUDRAJAT', 'SEMARANG', 'sudrajatwind2121@gmail.com', '82227154414', 0, '', ''),
+(153, 177530, 18, 'YOHANA KARTIKA WARDANI', 'SEMARANG', 'elfdani8@gmail.com', '85742288748', 0, '', ''),
+(154, 177531, 31, 'FRIDANATA DEVI RATIKA', 'SEMARANG', 'fridanata.deviratika@gmail.com', '83108355611', 0, '', ''),
+(155, 177532, 12, 'LUTHFI GANI HAKIM', 'SEMARANG', 'luthfigani1@gmail.com', '85290940081', 0, '', ''),
+(156, 177533, 12, 'MUHAMMAD FAISAL ABQORY', 'SEMARANG', 'abqory55@gmail.com', '85332321232', 0, '', ''),
+(157, 177534, 12, 'SYAH EMBO LANTANG', 'SEMARANG', 'lantangsyah@gmail.com', '85649725891', 0, '', ''),
+(158, 177536, 20, 'ANDHIKA BRAMANTYA', 'SEMARANG', 'andhikabramantya3@gmail.com', '89512995559', 0, '', ''),
+(159, 177537, 12, 'MUHAMMAD ODI RACHMAWAN', 'SEMARANG', 'odirachmawan96@gmail.com', '85732796167', 0, '', ''),
+(160, 177538, 18, 'SHAFIRA ARLINA', 'SEMARANG', 'shafiraarlina02@gmail.com', '87726848616', 0, '', ''),
+(161, 178472, 20, 'RADENTA NADIBUNDA JAYANTARA', 'SEMARANG', 'nurtaufikahid@gmail.com', '81227127112\n', 0, '', ''),
+(162, 178473, 17, 'RIKY ANGGARA PUTRA', 'SEMARANG', ' rikyanggaraputra@gmail.com', '81215229824', 0, '', ''),
+(163, 180130, 11, 'ABDAUL MUQORROBIN', 'SEMARANG', 'abdaulmuqorobin690@gmail.com', '89666472126', 0, '', ''),
+(164, 180133, 17, 'DIKY KABUL RUSDIANTO', 'SEMARANG', 'dikarusdianto849@gmail.com', '85600170086', 0, '', ''),
+(165, 180136, 17, 'VINI MEIFRISKA LESTARI', 'SEMARANG', 'vinigirsang@gmail.com', '8,81025E+11', 0, '', ''),
+(166, 181187, 45, 'ANGGIE AFIANDA ZHARFAN', 'SEMARANG', 'zarfan01@gmail.com', '81365250822', 0, '', ''),
+(167, 183806, 17, 'ANGGA DWIYONO PUTRA', 'SEMARANG', 'anggadp234@gmail.com', '085157334243', 0, '', ''),
+(168, 183807, 11, 'ADITYA SANUBARI', 'SEMARANG', 'sanubariaditya009@gmail.com', '081224241811', 0, '', ''),
+(169, 183808, 31, 'EFY ANA MUFLICHATI', 'SEMARANG', 'efyanamuf@gmail.com', '081325855487', 0, '', ''),
+(170, 183809, 11, 'GREGORIUS FRANJAYA SETYA DEWA', 'SEMARANG', 'gregoriusfranjaya@gmail.com', '085157444227', 0, '', ''),
+(171, 184818, 0, 'WAHYU SETIAJI', 'SEMARANG', 'wahyusetiaji2004@gmail.com', '081286476110', 0, '', ''),
+(172, 186730, 11, 'IKHDA MULIANA AGUSTIN', 'SEMARANG', 'IKHDAMAGUSTIN@GMAIL.COM', '08998756214', 0, '', ''),
+(173, 186731, 11, 'DICKY', 'SEMARANG', 'dicky.tokz@gmail.com', '085735534667', 0, '', ''),
+(174, 186732, 11, 'AHMAD YUSUF \'ULUMUDDIN', 'SEMARANG', 'ahmadyusufulumuddin2005@gmail.com', '089609937966', 0, '', ''),
+(175, 187840, 11, 'RAHMAT', 'SEMARANG', 'rahmatjust22@gmail.com', '089602605610', 0, '', ''),
+(176, 187841, 17, 'ARVINDA AMELIA NINGSIH', 'SEMARANG', 'ameliaarvinda724@gmail.com', '087727578690', 0, '', ''),
+(177, 188819, 11, 'APRIADI', 'SEMARANG', 'apriadixii@gmail.com', '081266970003', 0, '', ''),
+(178, 188820, 11, 'PRATIWI RAHMA SARI', 'SEMARANG', 'pratiwirahmasari@gmail.com', '085163552388', 0, '', ''),
+(179, 188821, 11, 'SRI WAHYU RISKIANTI', 'SEMARANG', 'sriwahyuriskianti@gmail.com', '082323026176', 0, '', ''),
+(180, 188822, 11, 'DYAH SYAHNA AYU SHABELLA', 'SEMARANG', 'dyah6199@gmail.com', '082136655735', 0, '', ''),
+(181, 188824, 11, 'ABDUL WAFI', 'SEMARANG', 'awafi220@gmail.com', '0851 6353 0189', 0, '', ''),
+(182, 188823, 11, 'HIDAYAT WISNU CANDRA', 'SEMARANG', 'wisnuwonka@gmail.com', '08978001462', 0, '', ''),
+(183, 188825, 11, 'ARAMINTA APRIYANTI SUKAHAR', 'SEMARANG', 'jeon.araminta@gmail.com', '085862031187', 0, '', ''),
+(184, 190402, 11, 'RESITA MEKASUMAH', 'SEMARANG', 'ressythaa@gmail.com', '081280771141', 0, '', ''),
+(185, 190403, 11, 'ALAN SUKRON ALHAKIM', 'SEMARANG', 'alansukron77@gmail.com', '085314130527', 0, '', ''),
+(186, 190404, 11, 'KARTIKA AMARETA', 'SEMARANG', 'kartika.amareta@gmail.com', '089667810855', 0, '', ''),
+(187, 190405, 11, 'AZKIYA NURUL UMAH', 'SEMARANG\'', 'azkiyanurul80@gmail.com', '081229733380', 0, '', ''),
+(188, 190406, 11, 'ARIS MAULANA', 'SEMARANG', 'arismaulanaa40@gmail.com', '0895330907035', 0, '', ''),
+(189, 190407, 11, 'SASA INARNI', 'SEMARANG', 'sasainarni11@gmail.com', '0895368995835', 0, '', ''),
+(190, 190408, 11, 'MUHAMMAD BAGAS MASHADOV', 'SEMARANG', 'Bagasmashadov@gmail.com', '082221215964', 0, '', ''),
+(191, 190409, 11, 'PRASTYAWAN MA\'RUF', 'SEMARANG', 'prastyawanmf@gmail.com', '082225220452', 0, '', ''),
+(192, 190410, 11, 'NOR SAFIRA AZLYN', 'SEMARANG', 'safiraazlyns@gmail.com', '081267187961', 0, '', ''),
+(193, 190411, 11, 'ELIASER', 'SEMARANG', 'eliaser9628@gmail.com', '085717265272', 0, '', ''),
+(194, 190412, 11, 'ADE YULIANI', 'SEMARANG', 'adeyuliani8@gmail.com', '081901221490', 0, '', ''),
+(195, 190413, 11, 'RIZKI TRYBUDIMAN', 'SEMARANG', 'RIZKYTRYBUDIMAN28@GMAIL.COM', '085357153475', 0, '', ''),
+(196, 190414, 11, 'ARI HILDA MAWADDAH', 'SEMARANG', 'arihildamawaddah78@gmail.com', '081393720562', 0, '', ''),
+(197, 190415, 11, 'RIZKY ABDUL MALIK', 'SEMARANG', 'rizkyabdulmalik.ra@gmail.com', '081227576078', 0, '', ''),
+(198, 190416, 11, 'ADE AYU KOMALASARI', 'SEMARANG', 'adeayukomalasari40@gmail.com', '081541281243', 0, '', ''),
+(199, 190418, 11, 'KHAIRUL WIRANTO', 'SEMARANG', 'khairulwira97@gmail.com', '087710266874', 0, '', ''),
+(200, 190419, 11, 'PRAMA PASHA NUGRAHA', 'SEMARANG', 'pramapashaa98@gmail.com', '089669387449', 0, '', ''),
+(201, 190420, 11, 'FAIZA SEPTI ARIANI', 'SEMARANG', 'faizaseptiariani97@gmail.com', '081326996683', 0, '', ''),
+(202, 190421, 11, 'FARKHI FAUZAN', 'SEMARANG', 'farkhifauzan1@gmail.com', '081225292633', 0, '', ''),
+(203, 190422, 11, 'ALIFIA AMALIATUS S', 'SEMARANG', 'alifia.amaliatus@gmail.com', '085745520006', 0, '', ''),
+(204, 192075, 11, 'DESTYA EKA RAMADHANI', 'SEMARANG', 'destya.ekarm@gmail.com', '085292858019', 0, '', ''),
+(205, 192169, 11, 'TIA INDRIANI', 'SEMARANG', 'tiaindriani911@gmail.com', '085155381988', 0, '', ''),
+(206, 192076, 11, 'KUKUH YULIAN SANTOSO', 'SEMARANG', 'Kukuhyulian09@gmail.com ', '087770406203', 0, '', ''),
+(207, 192077, 11, 'HAYYIK USWATUN HASANAH', 'SEMARANG', 'Hayyikuswatunhasanah@gmail.com ', '087728986011', 0, '', ''),
+(208, 192170, 11, 'GINA RIZQI ISLAMIATI', 'SEMARANG', 'ghina.rizqi14@gmail.com', '085322529702', 0, '', ''),
+(209, 192078, 11, 'ALIM MARTA PRIHATIN', 'SEMARANG', 'alimmarta12@gmail.com', '082220836869', 0, '', ''),
+(210, 192079, 11, 'A.D. DIAN KURNIAWAN', 'SEMARANG', 'kurniawandian72@gmail.com', '082389951974', 0, '', ''),
+(211, 192080, 11, 'ANINDYA NANDA ROZANA', 'SEMARANG', 'anindyanr.anr@gmail.com', '082284352126', 0, '', ''),
+(212, 192171, 11, 'ANJA DENI KESUMA', 'SEMARANG', 'anjadenikesuma@gmail.com ', '085156415930', 0, '', ''),
+(213, 192081, 11, 'ROBERT SETYAWAN', 'SEMARANG', 'robertsetyawan.rs@gmail.com', '082138372538', 0, '', ''),
+(214, 192172, 11, 'AHMAD MUHAJIR HASIBUAN', 'SEMARANG', '01.ahmad.muhajir@gmail.com', '081378817081', 0, '', ''),
+(215, 3415, 38, 'DIMAS PRASETYO', 'BANDUNG', 'dimassly@gmail.com', '82210943341', 0, '', ''),
+(216, 3416, 10, 'EKA MUSTIKA', 'BANDUNG', 'ekamustika0@gmail.com', '81290864963', 0, '', ''),
+(217, 3423, 0, 'NANDA KHOERUL FADLI', 'BANDUNG', 'nandaa.fadlii@gmail.com', '81298036904', 0, '', ''),
+(218, 3427, 25, 'PUTRA PANJAITAN', 'BANDUNG', 'putraparsaulian@gmail.com', '81285256556', 0, '', ''),
+(219, 3454, 1, 'YUDIYANTO', 'BANDUNG', 'yudi.yanto121@gmail.com', '81283980010', 0, '', ''),
+(220, 11713, 14, 'NURLAILY', 'BANDUNG', 'laily.skom@gmail.com', '82210197556', 0, '', ''),
+(221, 12282, 30, 'LERTINA MANULLANG', 'BANDUNG', 'cemaraku.sweets@gmail.com', '8128333414', 0, '', ''),
+(222, 26018, 19, 'BAHTIAR NUGRAHA', 'BANDUNG', 'tiarr.nugraha@gmail.com', '081317001358', 0, '', ''),
+(223, 26028, 5, 'INDRA ARMANDA PUTRA', 'BANDUNG', 'indraap5790@gmail.com', '81211115790', 0, '', ''),
+(224, 28890, 6, 'RAHMAWATI ANHAR', 'BANDUNG', 'syrahma@gmail.com', '82124073256', 0, '', ''),
+(225, 31109, 40, 'AHMAD SALMAN TOHAERI', 'BANDUNG', 'salman.toha@gmail.com', '082126335565', 0, '', ''),
+(226, 59153, 14, 'FAHMI ARDHI PRATAMA KOESBIANTORO', 'BANDUNG', 'fahmiardhipratama@gmail.com', '81394531936', 0, '', ''),
+(227, 61603, 25, 'ALDY DWISEPTIKA', 'BANDUNG', 'aldydwiseptika@gmail.com', '082113766599', 0, '', ''),
+(228, 62818, 36, 'MUHAMMAD WAHID SOFYAN', 'BANDUNG', 'wahidsofyan1991@gmail.com', '08112235255', 0, '', ''),
+(229, 65017, 39, 'EKO SISWOYO', 'BANDUNG', 'eko06siswoyo@gmail.com', '082299990270', 0, '', ''),
+(230, 65301, 38, 'APRIL NALDI', 'BANDUNG', 'aprilnaldi91@gmail.com', '81212301524', 0, '', ''),
+(231, 66071, 7, 'YUSUF NURDIANSYAH', 'BANDUNG', 'yusufnurdin09@gmail.com', '081212147982', 0, '', ''),
+(232, 72474, 19, 'CECEP HERMAWAN', 'BANDUNG', 'cecephermawan617@gmail.com', '081297653817', 0, '', ''),
+(233, 73831, 10, 'RENDRA LUTFI MURASTRA', 'BANDUNG', 'rendralutfi1@gmail.com', '081317759946', 0, '', ''),
+(234, 75068, 24, 'BIQI MUHAMAD RIZAL', 'BANDUNG', 'biqimrizal@gmail.com', '082211090567', 0, '', ''),
+(235, 75072, 42, 'RAMDANI SEPTIAN HIDAYAT', 'BANDUNG', 'ramdani.septian18@gmail.com', '81221202590', 0, '', ''),
+(236, 80575, 19, 'AHMAD DENDI RAMDANI', 'BANDUNG', 'ahmaddendi12@gmail.com', '081310316062', 0, '', ''),
+(237, 81838, 39, 'ARMAN PERMANA', 'BANDUNG', 'armanpermana45@gmail.com', '81382862031', 0, '', ''),
+(238, 84160, 23, 'ADITYA MAHMUD FAZA', 'BANDUNG', 'fazaaditya1@gmail.com', '82262670917', 0, '', ''),
+(239, 84163, 14, 'MUHAMAD HASAN BASRI', 'BANDUNG', 'hanmuhamadisone@gmail.com', '085156544564', 0, '', ''),
+(240, 87155, 19, 'RAHMAT HIDAYAT', 'BANDUNG', 'mailto:rh905490@gmail.com', '081584220908', 0, '', ''),
+(241, 87929, 24, 'WINDI SITI HAJRIANI', 'BANDUNG', 'windisitihajriani@gmail.com', '081210800330', 0, '', ''),
+(242, 87931, 19, 'ANIS SANITA', 'BANDUNG', 'anissanitaa@gmail.com', '08112361616', 0, '', ''),
+(243, 88233, 18, 'GINANJAR SUTISNA R', 'BANDUNG', 'ginanjarsutisna12@gmail.com', '081290962718', 0, '', ''),
+(244, 88243, 23, 'BAMBANG SEPTIADI', 'BANDUNG', 'mbung.septiadi@gmail,com', '081321774459', 0, '', ''),
+(245, 88247, 19, 'MUHAMAD IRFAN IBRAHIM', 'BANDUNG', 'mirfanibr@gmail.com', '081299153052', 0, '', ''),
+(246, 90719, 11, 'RIZKA MARIS KEMALA S.', 'BANDUNG', 'rizkamariskemalasari@gmail.com', '085157498115', 0, '', ''),
+(247, 90990, 18, 'AZIS IMANSYAH', 'BANDUNG', 'azisimansyah1595@gmail.com', '083812772682', 0, '', ''),
+(248, 90995, 14, 'KIKI ANGGARA', 'BANDUNG', 'Kikianggara224@gmail.com', '082123414363', 0, '', ''),
+(249, 91657, 18, 'ANDINI PRAMUDITA', 'BANDUNG', 'pramuditandini@gmail.com', '08112167794', 0, '', ''),
+(250, 91659, 14, 'BAYU RAMADAN', 'BANDUNG', 'bayuramadan.nr@gmail.com\n', '08112144471', 0, '', ''),
+(251, 91660, 19, 'CUCUT ARIS WIDIYANTO', 'BANDUNG', 'caw.tdscc@gmail.com', '08112144471', 0, '', ''),
+(252, 91661, 37, 'ERNI NOVIANTI', 'BANDUNG', 'erninovianti45@gmail.com', '081288423741', 0, '', ''),
+(253, 91662, 37, 'M RUDI KUSUMAH S', 'BANDUNG', 'Rudi.kusumah1@gmail.com', '081230784014', 0, '', ''),
+(254, 91664, 37, 'RINI KUSMAWATI', 'BANDUNG', 'rinikusmawati28@gmail.com', '082214162627', 0, '', ''),
+(255, 91667, 18, 'ASTA TRI FAUZI', 'BANDUNG', 'astatrifauzi@gmail.com', '081242290799', 0, '', ''),
+(256, 91668, 31, 'DESI HANDAYANI', 'BANDUNG', 'dehadeha02@gmail.com', '81222875215', 0, '', ''),
+(257, 91670, 14, 'DERA FADLY HAMDANI', 'BANDUNG', 'dera.sublime@gmail.com', '081313339390', 0, '', ''),
+(258, 91676, 42, 'RANDI SAEFUL FAJAR', 'BANDUNG', 'randi.saefulfajar@gmail.com', '81320040904', 0, '', ''),
+(259, 91679, 18, 'RIZAL MUSTOPA', 'BANDUNG', 'rizalmustopa251@gmail.com', '082112663529', 0, '', ''),
+(260, 91680, 11, 'ROMAULI TAMPUBOLON', 'BANDUNG', 'romaulitampubolon00@gmail.com', '081224466566', 0, '', ''),
+(261, 91681, 14, 'WULAN PURWANTI', 'BANDUNG', 'wulanpurwanti8@gmail.com', '08112128003', 0, '', ''),
+(262, 91682, 12, 'YANIS MULYANI', 'BANDUNG', 'yanismulyani735@gmail.com', '082217626620', 0, '', ''),
+(263, 91742, 41, 'MEDI ARI COEBITI', 'BANDUNG', 'mediari0804@gmail.com', '082127061251', 0, '', ''),
+(264, 91797, 42, 'DIMAS HARIANTO', 'BANDUNG', 'abjohn55@yahoo.com', '081385295951', 0, '', ''),
+(265, 92559, 14, 'AGUNG SETYO NUGROHO', 'BANDUNG', 'agungsetyonugroho94@gmail.com', '081220030011', 0, '', ''),
+(266, 92563, 12, 'ANDHIKA SANDI ZATMIKA', 'BANDUNG', 'sandizatmika@gmail.com', '082123411930', 0, '', ''),
+(267, 92567, 18, 'ANDI RIZKY KOSASIH', 'BANDUNG', 'andirizkykosasih@gmail.com', '82118453428', 0, '', ''),
+(268, 92569, 18, 'DADAN MUHAMAD RAMDAN', 'BANDUNG', 'dadanmuhamadramdan118@gmail.com', '81223113169', 0, '', ''),
+(269, 92578, 18, 'FAJAR AWALUDIN', 'BANDUNG', 'fajarawal7@gmail.com', '85324747997', 0, '', ''),
+(270, 92582, 14, 'SATRIA MUKTI AJI', 'BANDUNG', 'satriamuktiaji@gmail', '81321329828', 0, '', ''),
+(271, 92584, 14, 'TAUFIQ NURROHMAN', 'BANDUNG', 'taufiqnurrohman24@gmail.com', '081320091094', 0, '', ''),
+(272, 92585, 14, 'YORIS ORLANDO', 'BANDUNG', 'yoris444@gmail.com', '081224058556', 0, '', ''),
+(273, 92588, 14, 'ALDI RIANDI', 'BANDUNG', 'aldiriandi84@gmail.com', '082121723628', 0, '', ''),
+(274, 92590, 18, 'DANY SANTARA GUMILAR', 'BANDUNG', 'danys.gumilar@gmail.con', '081224161907', 0, '', ''),
+(275, 92593, 19, 'DUWI SEPTIANI', 'BANDUNG', 'duwis0794@gmail.com', '082114021844', 0, '', ''),
+(276, 92595, 19, 'IRFAN HILMI', 'BANDUNG', 'irfanhilmi99@gmail.com', '082121208121', 0, '', ''),
+(277, 92598, 18, 'LUTHFI FICKRUL ISLAMI MANOOR', 'BANDUNG', 'luthfifickrulislami@gmail.com', '081214403381', 0, '', ''),
+(278, 92600, 14, 'RATNA DEWI PUSPITASARI', 'BANDUNG', 'ratnnadewips@gmail.com', '082119021296', 0, '', ''),
+(279, 92601, 7, 'RIKY NUGRAHA', 'BANDUNG', 'rikynugg@gmail.com', '082115679373', 0, '', ''),
+(280, 92603, 19, 'RIZKI RAHMAT RIANSYAH', 'BANDUNG', 'er.rizkiansyah@gmail.com', '081222942334', 0, '', ''),
+(281, 92605, 14, 'RUQI ANTIKA', 'BANDUNG', 'ruqi.antika@gmail.com', '082121723627', 0, '', ''),
+(282, 92607, 18, 'TRIYONO KROMO', 'BANDUNG', 'triyonokromo@gmail.com', '081220928601', 0, '', ''),
+(283, 92608, 14, 'WILDAN SEPTAMA', 'BANDUNG', 'wildanseptama24@gmail.com', '082119188201', 0, '', ''),
+(284, 92609, 18, 'ZHARIF HIDAYAT', 'BANDUNG', 'adistysu@gmail.com', '082127969898', 0, '', ''),
+(285, 94169, 14, 'ADISTY SUKMAWATI', 'BANDUNG', 'adistysu@gmail.com', '082127969898', 0, '', ''),
+(286, 94174, 37, 'SILVIA MANELA', 'BANDUNG', 'silviamanela29@gmail.com', '085659003676', 0, '', ''),
+(287, 94175, 42, 'ADI MULYA PERMANA', 'BANDUNG', 'adipermana018@gmail.com', '082317300110', 0, '', ''),
+(288, 94176, 14, 'ALDI HANDIAN SURYANA', 'BANDUNG', 'aldi27handian@gmail.com', '081572578036', 0, '', ''),
+(289, 94177, 19, 'AMIN ROSYADI', 'BANDUNG', 'dhie.mounk@windowslive.com', '081275360604', 0, '', ''),
+(290, 94178, 31, 'ARIEF RAHMAN IBRAHIM', 'BANDUNG', 'rahmantz93@gmail.com', '081282335480', 0, '', ''),
+(291, 94180, 18, 'DIAN ANGGARDA PUTRA', 'BANDUNG', 'diananggarda94@gmail.com', '82214535735', 0, '', ''),
+(292, 94191, 42, 'RIRI ARIANSYAH', 'BANDUNG', 'ariansyahriri@gmail.com', '082120101246', 0, '', ''),
+(293, 94192, 19, 'RIZKI MAULANA FIRDAUS', 'BANDUNG', 'rizkim690@gmail.com', '081394433887', 0, '', ''),
+(294, 95494, 29, 'DUSTIN YUDA PURBAYA', 'BANDUNG', 'dustinyuda@gmail.com', '082117402481', 0, '', ''),
+(295, 96305, 40, 'ASEP FIRMAN GINANJAR', 'BANDUNG', 'asepfirman.ti@gmail.com', '082130452660', 0, '', ''),
+(296, 96306, 18, 'IQBAL BAHARI', 'BANDUNG', 'iqbalbahari29@gmail.com', '82115847304', 0, '', ''),
+(297, 96312, 14, 'BAMBANG NURDIANSYAH', 'BANDUNG', 'bambangnurdiann@gmail.com', '8112131883', 0, '', ''),
+(298, 96313, 12, 'DESI SAFITRI', 'BANDUNG', 'desisafitriofficial@gmail.com', '081226025756', 0, '', ''),
+(299, 96315, 37, 'DWI NURKHOTIMAH', 'BANDUNG', 'dowe.nk93@gmail.com', '085315026440', 0, '', ''),
+(300, 96316, 18, 'DWI WINDA WIDIYANINGSIH', 'BANDUNG', 'dwiwinda0563@gmail.com', '082321932244', 0, '', ''),
+(301, 96317, 12, 'MUKTI MOCHAMMAD RAMDHAN', 'BANDUNG', 'mukti.ramdhan@gmail.com', '0811242707', 0, '', ''),
+(302, 96318, 19, 'RIZKI RAMDHAN JUNAEDI', 'BANDUNG', 'rizkiramdhan.j@gmail.com', '082127307848', 0, '', ''),
+(303, 96319, 18, 'SHINTA FEBBY FITRIYANTI', 'BANDUNG', 'shintafebby66@gmail.com', '082317675147', 0, '', ''),
+(304, 96320, 37, 'YUDHA NUGRAHA', 'BANDUNG', 'emailyudhanugraha@gmail.com', '081220990299', 0, '', ''),
+(305, 98301, 11, 'JAJANG SUPRIATNA', 'BANDUNG', 'jjkuya7@gmail.com', '085294442900', 0, '', ''),
+(306, 98792, 14, 'ARIF HIDAYAT SUMARNA', 'BANDUNG', 'arifhidayats19@gmail.com', '081212654593', 0, '', ''),
+(307, 98793, 7, 'FAIQ AHMED ARYANA', 'BANDUNG', 'faiq.ahmed27@gmail.com', '08112009727', 0, '', ''),
+(308, 98796, 14, 'ROMY YUDISTIRA', 'BANDUNG', 'ryudistira01@gmail.com', '87823386088', 0, '', ''),
+(309, 98797, 14, 'RYAN RUHIMAT', 'BANDUNG', 'ryanruhimat104@gmail.com', '085314588734', 0, '', ''),
+(310, 98799, 19, 'ADNAN FAJAR NUGRAHA', 'BANDUNG', 'adnan.nugraha21@gmail.com', '08112334700', 0, '', ''),
+(311, 98800, 11, 'AMY FITRI IRIANA', 'BANDUNG', 'amyfitriiriana@gmail.com', '082116304990', 0, '', ''),
+(312, 98803, 18, 'FADJAR INDRAWAN FIRDAUS', 'BANDUNG', 'fadjarfif16@gmail.com', '081223051633', 0, '', ''),
+(313, 98806, 14, 'INDRA APRIYADI', 'BANDUNG', 'apriyadiindra.ia@gmail.com', '085157592771', 0, '', ''),
+(314, 99253, 24, 'EKA PURNAMA SARI', 'BANDUNG', 'echaps27@gmail.com', '082115208217', 0, '', ''),
+(315, 99751, 14, 'AGI FAKHRU WILDAN', 'BANDUNG', 'agifakhruw@gmail.com', '082117172757', 0, '', ''),
+(316, 99752, 31, 'AL HADID ', 'BANDUNG', 'alhadid345@gmail.com', '82117601870', 0, '', ''),
+(317, 99754, 18, 'HILMAN FUADI', 'BANDUNG', 'hilmanfuadi@hotmail.com', '082219227965', 0, '', ''),
+(318, 101521, 14, 'ACHMAD ALFIAN RAMADHIANSYAH', 'BANDUNG', 'achmadalfian01@gmail.com', '085353998472', 0, '', ''),
+(319, 101523, 14, 'MUHAMMAD RHEZA FAUZAN', 'BANDUNG', 'ezzagame@gmail.com', '081321123028', 0, '', ''),
+(320, 101524, 19, 'MUHAMMAD TAUFIK AKBAR', 'BANDUNG', 'mtaufikak@gmail.com', '081381318015', 0, '', ''),
+(321, 101527, 14, 'MUHAMMAD FAIZ BILLAH', 'BANDUNG', 'fazabee11@gmail.com', '081312866685', 0, '', ''),
+(322, 101528, 18, 'PERY KURNIAWAN', 'BANDUNG', 'hallo.perykurniawan@gmail.com', '082126149895', 0, '', ''),
+(323, 104235, 14, 'FERNANDO SIHOLE', 'BANDUNG', 'nitrousfernando@gmail.com', '082126971488', 0, '', ''),
+(324, 104237, 12, 'FITRI MULYANI', 'BANDUNG', 'fmulyani995@gmail.com', '081312964398', 0, '', ''),
+(325, 104241, 14, 'SOPYAN', 'BANDUNG', 'sopyan.work@gmail.com', '082120401104', 0, '', ''),
+(326, 105370, 14, 'ADITYO NUGROHO', 'BANDUNG', 'adit.dm21@gmail.com', '081395229615', 0, '', ''),
+(327, 105371, 14, 'BOBY INDRA SETIAWAN', 'BANDUNG', 'bobyindrasetiawan@outlook.com', '082126502868', 0, '', ''),
+(328, 105372, 18, 'DANY WARDHANA', 'BANDUNG', 'wardhanadany3@gmail.com', '082122675348', 0, '', ''),
+(329, 105374, 18, 'DWIKI YULIAWAN', 'BANDUNG', 'dwikiyuliawan95@gmail.com', '082313333402', 0, '', ''),
+(330, 105375, 14, 'ERY GUSTIAN', 'BANDUNG', 'erygustian1995@gmail.com', '082128381622', 0, '', ''),
+(331, 105377, 14, 'INDRA PIGUNA', 'BANDUNG', 'indraipin@gmail.com', '081394471764', 0, '', ''),
+(332, 105378, 14, 'MALIK IBRAHIM', 'BANDUNG', 'malikibrahim278@gmail.com', '081383590346', 0, '', ''),
+(333, 105379, 14, 'MUHAMMAD IKHSAN', 'BANDUNG', 'ikhsanmiracle@gmail.com', '082324524517', 0, '', ''),
+(334, 105380, 14, 'NUR MUHAMMAD RIZQI FAUZI', 'BANDUNG', 'kikisykess@gmail.com', '082317740571', 0, '', ''),
+(335, 105381, 37, 'RAMDAN SURYADI', 'BANDUNG', 'raamdansuryadi@gmail.com', '82118658955', 0, '', ''),
+(336, 105384, 11, 'TIARA ANDINI JUHENDI', 'BANDUNG', 'tiarajuhendi@gmail.com', '081384909807', 0, '', ''),
+(337, 150628, 14, 'NUR SYAWAL', 'BANDUNG', 'nursyawal219@gmail.com', '081214834260', 0, '', ''),
+(338, 150667, 37, 'ALAM ADHITYA PUTRA', 'BANDUNG', 'alam.lams72@gmail.com', '081251712090', 0, '', ''),
+(339, 150668, 14, 'DADAN ABDUL JABAR', 'BANDUNG', 'dadan.abduljabar@gmail.com', '081313407878', 0, '', ''),
+(340, 150669, 18, 'DONI PARASIAN HUTASOIT', 'BANDUNG', 'donihutasoit08@gmail.com', '082315963730', 0, '', ''),
+(341, 150670, 31, 'FAJAR FAISAL SURYA', 'BANDUNG', 'fajarfaisalsurya579@gmail.com', '08815715176', 0, '', ''),
+(342, 150672, 14, 'TAUFIK NURJAMAN', 'BANDUNG', 'taufiknurjaman13@gmail.com', '081223147261', 0, '', ''),
+(343, 152518, 31, 'TRISNAWAN HARTANTO', 'BANDUNG', 'trisnawanhartanto40@gmail.com', '081312027674', 0, '', ''),
+(344, 155259, 18, 'ARIE RIYADI PRASOJO', 'BANDUNG', 'arieriyadi33@gmail.com', '085294987611', 0, '', ''),
+(345, 155260, 11, 'EGI RUSTIAMAN', 'BANDUNG', 'Rustiaman.egi123@gmail.com', '081324110067', 0, '', ''),
+(346, 155261, 18, 'FIRMAN NURDIANSYAH', 'BANDUNG', 'frmnnsh@gmail.com', '081222137549', 0, '', ''),
+(347, 155262, 18, 'HADRIANA MARTAKUSUMAH', 'BANDUNG', 'hadriana6314224@gmail.com', '082126952273', 0, '', ''),
+(348, 156525, 12, 'FENNY STEPHANI', 'BANDUNG', 'fennystephani@gmail.com', '089510070455', 0, '', ''),
+(349, 156526, 12, 'PUTRI ANDARESTI', 'BANDUNG', 'putri.andaresti03@gmail.com', '089638704990', 0, '', ''),
+(350, 156527, 37, 'IWAN GUNAWAN', 'BANDUNG', 'gunawaniwan2002@gmail.com', '082119899123', 0, '', ''),
+(351, 156528, 12, 'RIZKY MUHAMMAD FIRDAUS', 'BANDUNG', 'rizkymuhammadf3@gmail.com', '081313031834', 0, '', ''),
+(352, 156529, 31, 'SENDY FIRDAUS', 'BANDUNG', 'firdaussendy99@gmail.com', '085159551550', 0, '', ''),
+(353, 156879, 0, 'YADI SURYANTO', 'BANDUNG', 'yadi.suryanto@gmail.com', '89515453521', 0, '', ''),
+(354, 158246, 14, 'ELIS MELANI', 'BANDUNG', 'elismelani18@gmail.com', '082118219387', 0, '', ''),
+(355, 158249, 12, 'M. NOOR FAHRUL AKBAR', 'BANDUNG', 'akbarmnf@gmail.com', '085624638423', 0, '', ''),
+(356, 158250, 12, 'HARRY KURNIAWAN HARTANTO KAWIDJAYA', 'BANDUNG', 'harryhartanto888@gmail.com', '081222633947', 0, '', ''),
+(357, 158251, 31, 'SARAH KYLA YASMIN GUMILAR', 'BANDUNG', 'sarahkylayasmin43@gmail.com', '085156723712', 0, '', ''),
+(358, 158252, 12, 'BUDI WIRA BHAKTI', 'BANDUNG', 'budi.wirabhakti@gmail.com', '082133553245', 0, '', ''),
+(359, 158253, 12, 'HENDRA MAULANA', 'BANDUNG', 'hendram353@gmail.com', '081235129075', 0, '', ''),
+(360, 158272, 0, 'RIDWAN SUBAGJA', 'BANDUNG', 'subagjaridwan02@gmail.com', '089509002667', 0, '', ''),
+(361, 159960, 12, 'GUNAWAN CHANDRO FEDRICSON', 'BANDUNG', 'gunawanchandro1@gmail.com', '087700181619', 0, '', ''),
+(362, 159963, 12, 'MAULANA LUQMAN', 'BANDUNG', 'maulanaluqman75@gmail.com', '081906876099', 0, '', ''),
+(363, 159964, 12, 'RAI ADI KRISNA', 'BANDUNG', 'raiadikrisna@gmail.com', '089655086918', 0, '', ''),
+(364, 159965, 11, 'REGGY BAYU PRATAMA', 'BANDUNG', 'reggybayup@gmail.com', '085156755647', 0, '', ''),
+(365, 159966, 12, 'RIZKI ILHAM NUGRAHA', 'BANDUNG', 'rezatugasakhir19@gmail.com', '085156321192', 0, '', ''),
+(366, 159967, 12, 'ROHIM RAMDANI', 'BANDUNG', 'rramdani75@gmail.com', '085156593131', 0, '', ''),
+(367, 161278, 31, 'GALIH JATI PERMANA', 'BANDUNG', 'jatigalih69@gmail.com', '081225462131', 0, '', ''),
+(368, 161279, 31, 'MUHAMAD EKA NISWORO', 'BANDUNG', 'ekanisworo@icloud.com', '081218382248', 0, '', ''),
+(369, 161281, 12, 'TESSA RINDIYANI', 'BANDUNG', 'tessarindiyani11@gmail.coM', '085320360926', 0, '', ''),
+(370, 164164, 12, 'FAHMI IBRAHIM SAENI', 'BANDUNG', 'fahmi.ibr@gmail.com', '081222525250', 0, '', ''),
+(371, 164165, 12, 'MUHAMAD FAISAL KARTAKUSUMAH', 'BANDUNG', 'mmfslk@gmail.com', '082118083841', 0, '', ''),
+(372, 164166, 41, 'RAI DWI SEPTIAJI', 'BANDUNG', 'raidwis97@gmail.com', '081398655795', 0, '', ''),
+(373, 164167, 12, 'SYAEFUL AKBAR NURROHIM', 'BANDUNG', 'syaefulakbar19@gmail.com', '085156574958', 0, '', ''),
+(374, 164168, 17, 'NABILAH NARDIANI', 'BANDUNG', 'nardianinabilah@gmail.com', '081222793017', 0, '', ''),
+(375, 164169, 11, 'WULAN HARISMAYANINGSIH', 'BANDUNG', 'harismayaningsih@gmail.com', '085156056038', 0, '', ''),
+(376, 164170, 11, 'HILMAN NUR RIDHO', 'BANDUNG', 'hilmannr94@gmail.com', '081220175242', 0, '', ''),
+(377, 164171, 11, 'REZA FAHLEVI', 'BANDUNG', 'rezatugasakhir19@gmail.com', '082120698018', 0, '', ''),
+(378, 166586, 12, 'RAHMAT ADHI JUMARA', 'BANDUNG', 'rahmat.adhijr@gmail.com', '081220557150', 0, '', ''),
+(379, 166587, 17, 'ALAN KURNIAWAN', 'BANDUNG', 'kurniawanalan69@gmail.com', '082120369265', 0, '', ''),
+(380, 166588, 11, 'MUHAMMAD FAISHAL ARSAWIJAYA', 'BANDUNG', 'Ishalarsw@gmail.com', '082251583979', 0, '', ''),
+(381, 166589, 12, 'ERI JULIYANA', 'BANDUNG', 'erijuliyana@gmail.com', '082128456277', 0, '', ''),
+(382, 166590, 17, 'MUAMAR RAFIK', 'BANDUNG', 'muamarrafik01@gmail.com', '082120846050', 0, '', ''),
+(383, 166591, 12, 'DANA TRIWIBOWO', 'BANDUNG', 'danawibowo14@gmail.com', '085280808321', 0, '', ''),
+(384, 166592, 17, 'SELVI APRIANTHY', 'BANDUNG', 'Selviaprianthy96@gmail.com', '081293333294', 0, '', ''),
+(385, 170651, 4, 'AGUSTIN AMANDA ZATALINI', 'BANDUNG', 'Agustinamandazatalini@gmail.com ', '082234865373', 0, '', ''),
+(386, 171981, 24, 'AUDINA RAHMANDA', 'BANDUNG', 'dinamanda94@gmail.com', '081365424171', 0, '', ''),
+(387, 176901, 11, 'SONY HARTO WIBOWO', 'BANDUNG', 'shartowibowo@gmail.com', '081219665835', 0, '', ''),
+(388, 176918, 17, 'TIANSYAH FAJAR RAMDHANI', 'BANDUNG', 'tiansyah.ramdhan@gmail.com', '082126803550', 0, '', ''),
+(389, 176920, 34, 'MUHAMMAD SYAHPUTRA', 'BANDUNG', 'syahputram03@gmail.com', '081215738054', 0, '', ''),
+(390, 176931, 17, 'SUHUD SUJUDI', 'BANDUNG', 'suhudsujudi0@gmail.com', '082218809403', 0, '', ''),
+(391, 177379, 12, 'AFDHAL ASNAWI', 'BANDUNG', 'afdhalasnawi23@gmail.com', '081275974631', 0, '', ''),
+(392, 177380, 11, 'ALDI RIZKI FAUJI', 'BANDUNG', 'aldirizkifauji13@gmail.com', '082116121514', 0, '', ''),
+(393, 177381, 11, 'AMRI HARTLAN', 'BANDUNG', 'hartlanamriamri@gmail.com', '081320595325', 0, '', ''),
+(394, 177382, 11, 'GIN GIN GUNTARA', 'BANDUNG', 'ginginguntara@gmail.com', '081223666800', 0, '', ''),
+(395, 177383, 11, 'HILMY MAULANA', 'BANDUNG', 'maulanahilmy993@gmail.com', '082129796599', 0, '', ''),
+(396, 177384, 11, 'KIKI ANJAYA', 'BANDUNG', 'kikianjaya2@gmail.com', '085320455158', 0, '', ''),
+(397, 177385, 11, 'MOH. RESQI MAULUDIN', 'BANDUNG', 'rezqimauludin@gmail.com', '085715550130', 0, '', ''),
+(398, 177386, 11, 'ZAHLUL FADIL SURYANA', 'BANDUNG', 'zafasuryana17@gmail.com', '081315647865', 0, '', ''),
+(399, 177387, 11, 'PRADHITA SALSABILA PUTRI PURNOMO', 'BANDUNG', 'pradhitasalsabila@gmail.com', '082123213431', 0, '', ''),
+(400, 177388, 11, 'RAINALDI WIBAWA', 'BANDUNG', 'rainaldiwibawa@gmail.com', '081395907891', 0, '', ''),
+(401, 177389, 11, 'SAMUEL SETYAJI', 'BANDUNG', 'setyajisamuel408@gmail.com', '083829872037', 0, '', ''),
+(402, 177390, 11, 'YOGI TRIONO', 'BANDUNG', '3ono.yogiforrester@gmail.com', '085314031030 ', 0, '', ''),
+(403, 177391, 11, 'YUDDY DARMAWAN', 'BANDUNG', 'yuddydarmawan12@gmail.com', '081991979291', 0, '', ''),
+(404, 178471, 11, 'ADITYO KUSUMA PUTRA', 'BANDUNG', 'Adityo.kp8@gmail.com', '082127489889', 0, '', ''),
+(405, 190679, 11, 'BOGIE DWI CAHYO', 'BANDUNG', 'bogieindomarco@gmail.com', '81227711150', 0, '', ''),
+(406, 190680, 11, 'SANTA SINAGA', 'BANDUNG', 'sinagasanta31@gmail.com', '82386225156', 0, '', ''),
+(407, 190681, 11, 'YOGA PRADENTA', 'BANDUNG', 'yogapradenta234@gmail.com', '89601599942', 0, '', ''),
+(408, 190682, 11, 'ELANSYAH SURYA RASIDI', 'BANDUNG', 'elansyahsurya@gmail.com', '895803220454', 0, '', ''),
+(409, 176920, 26, 'WAWAN KURNIAWAN', 'BANDUNG', 'abufadhil01@gmail.com', '8112230880', 0, '', ''),
+(410, 32480, 11, 'FAHMI ARDIYAN', 'BANDUNG', 'fahmi.game2020@gmail.com', '87784853926', 0, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_kategori_non_conformity`
+--
+
+CREATE TABLE `tb_kategori_non_conformity` (
+  `id_kategori_non_conformity` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `kategori_non_conformity` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_kategori_non_conformity`
+--
+
+INSERT INTO `tb_kategori_non_conformity` (`id_kategori_non_conformity`, `id_layanan`, `kategori_non_conformity`) VALUES
+(1, 1, 'Agent kurang Analitis'),
+(2, 1, 'Agent kurang Sistematis'),
+(3, 1, 'Agent kurang Komunikatif'),
+(4, 1, 'Agent kurang Ramah'),
+(5, 1, 'Agent kurang Sabar (Active Listener)'),
+(6, 1, 'Agent kurang Tanggap/Cepat/Antusias'),
+(7, 1, 'Agent kurang Pemahaman terkait Product'),
+(8, 1, 'Agent kurang Pemahaman terkait Procedure'),
+(9, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_layanan`
+--
+
+CREATE TABLE `tb_layanan` (
+  `id_layanan` int(11) NOT NULL,
+  `layanan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_layanan`
+--
+
+INSERT INTO `tb_layanan` (`id_layanan`, `layanan`) VALUES
+(1, 'L0 VOICE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_master_qmscore`
+--
+
+CREATE TABLE `tb_master_qmscore` (
+  `id_master` int(10) NOT NULL,
+  `timestep` varchar(255) NOT NULL,
+  `id_parner_qa` int(10) NOT NULL,
+  `id_parner_agent` int(10) NOT NULL,
+  `id_parner_tl` int(10) NOT NULL,
+  `id_parner_spv` int(10) NOT NULL,
+  `id_tenure_agent` int(10) NOT NULL,
+  `id_periode_tapping` int(10) NOT NULL,
+  `tanggal_interaksi_agent` varchar(255) NOT NULL,
+  `jam_interkasi_agent` varchar(255) NOT NULL,
+  `durasi _handling_time` varchar(255) NOT NULL,
+  `id_roster_agent` int(10) NOT NULL,
+  `id_sample_tapping` int(10) NOT NULL,
+  `jenis_tapping` varchar(255) NOT NULL,
+  `channel` varchar(255) NOT NULL,
+  `kategori_interaksi_agent` varchar(255) NOT NULL,
+  `id_detail_interaksi` int(10) NOT NULL,
+  `hold_call` varchar(255) NOT NULL,
+  `durasi_total_hold_call` varchar(255) NOT NULL,
+  `id_penyebab_handling` int(10) NOT NULL,
+  `channel_interaksi` varchar(255) NOT NULL,
+  `id_interaksi` varchar(10) NOT NULL,
+  `nilai_a1_proses` varchar(255) NOT NULL,
+  `id_p_a1` int(10) NOT NULL,
+  `nilai_a2a_proses` varchar(255) NOT NULL,
+  `id_p_a2a` int(10) NOT NULL,
+  `nilai_a2b_proses` varchar(255) NOT NULL,
+  `id_p_a2b` int(10) NOT NULL,
+  `nilai_a3_proses` varchar(255) NOT NULL,
+  `id_p_a3` int(10) NOT NULL,
+  `nilai_b1a_sikap` varchar(255) NOT NULL,
+  `id_p_b1a` int(10) NOT NULL,
+  `nilai_b1b_sikap` varchar(255) NOT NULL,
+  `id_p_b1b` int(10) NOT NULL,
+  `nilai_b2a_sikap` varchar(255) NOT NULL,
+  `id_p_b2a` int(10) NOT NULL,
+  `nilai_b2b_sikap` varchar(255) NOT NULL,
+  `id_p_b2b` int(10) NOT NULL,
+  `nilai_b3_sikap` varchar(255) NOT NULL,
+  `id_p_b3` int(10) NOT NULL,
+  `nilai_c1_solusi` varchar(255) NOT NULL,
+  `id_p_c1` int(10) NOT NULL,
+  `nilai_c2_solusi` varchar(255) NOT NULL,
+  `id_p_c2` int(10) NOT NULL,
+  `nilai_c3_solusi` varchar(255) NOT NULL,
+  `id_p_c3` int(10) NOT NULL,
+  `id_kategori_non_conformity` int(10) NOT NULL,
+  `id_detail_non_conformity` int(10) NOT NULL,
+  `id_rekomendasi_untuk_agent` int(10) NOT NULL,
+  `qm_score` varchar(10) NOT NULL,
+  `customer` varchar(10) NOT NULL,
+  `business` varchar(10) NOT NULL,
+  `complaince` varchar(10) NOT NULL,
+  `non_critical` varchar(10) NOT NULL,
+  `proses` varchar(10) NOT NULL,
+  `sikap` varchar(10) NOT NULL,
+  `solusi` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_master_qmscore`
+--
+
+INSERT INTO `tb_master_qmscore` (`id_master`, `timestep`, `id_parner_qa`, `id_parner_agent`, `id_parner_tl`, `id_parner_spv`, `id_tenure_agent`, `id_periode_tapping`, `tanggal_interaksi_agent`, `jam_interkasi_agent`, `durasi _handling_time`, `id_roster_agent`, `id_sample_tapping`, `jenis_tapping`, `channel`, `kategori_interaksi_agent`, `id_detail_interaksi`, `hold_call`, `durasi_total_hold_call`, `id_penyebab_handling`, `channel_interaksi`, `id_interaksi`, `nilai_a1_proses`, `id_p_a1`, `nilai_a2a_proses`, `id_p_a2a`, `nilai_a2b_proses`, `id_p_a2b`, `nilai_a3_proses`, `id_p_a3`, `nilai_b1a_sikap`, `id_p_b1a`, `nilai_b1b_sikap`, `id_p_b1b`, `nilai_b2a_sikap`, `id_p_b2a`, `nilai_b2b_sikap`, `id_p_b2b`, `nilai_b3_sikap`, `id_p_b3`, `nilai_c1_solusi`, `id_p_c1`, `nilai_c2_solusi`, `id_p_c2`, `nilai_c3_solusi`, `id_p_c3`, `id_kategori_non_conformity`, `id_detail_non_conformity`, `id_rekomendasi_untuk_agent`, `qm_score`, `customer`, `business`, `complaince`, `non_critical`, `proses`, `sikap`, `solusi`) VALUES
+(1, '04-01-2022  08:00:00', 35590, 177387, 81838, 3454, 4, 1, '03-01-2022', '10:34:18', '254\r\n', 1, 2, 'Tapping Regular', '02129688899', 'Informasi', 2, '', '', 7, 'L0 VOICE', 'A10435', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '0', 7, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 5, 27, 9, '97', '62', '20', '10', '5', '25', '12', '60'),
+(2, '05-01-2022  09:00:00', 35590, 177382, 66071, 3454, 4, 1, '04-01-2022', '02:00:57', '231', 4, 2, 'Tapping Regular', '081585352045', 'komplain', 6, '', '', 6, 'L0 Voice', 'A10451', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 40, 11, '100', '65', '20', '10', '5', '25', '15', '60'),
+(3, '08-01-2022  08:15:00', 76087, 186731, 150077, 27998, 2, 1, '07-01-2022', '14:44:53', '341', 4, 2, 'Tapping Regular', '082195667021', 'komplain', 9, '1', '23', 3, 'L0 VOICE', 'A10471', '1', 3, '1', 3, '1', 3, '1', 5, '0', 2, '0', 7, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 6, 20, 7, '94', '59', '20', '10', '5', '25', '9', '60'),
+(4, '08-01-2022  10:40:00', 35590, 190679, 98793, 3454, 1, 1, '07-01-2022', '15:02:19', '261', 7, 1, 'Tapping Regular', '082347669206\r\n', 'Komplain', 7, '1', '75', 5, 'L0 VOICE', 'A10467', '1', 3, '1', 3, '1', 3, '0', 5, '0', 7, '1', 4, '1', 6, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 4, 15, 4, '94', '59', '20', '', '5', '25', '9', '60'),
+(5, '08-04-2022  11:11:00', 170658, 192172, 174186, 27998, 1, 1, '07-01-2022', '10:39:55', '311', 4, 1, 'Tapping Regular', '085279286875', 'Komplain', 9, '1', '85', 1, 'L0 VOICE', 'A10595', '1', 3, '1', 3, '0', 1, '1', 5, '1', 8, '0', 7, '1', 4, '0', 3, '1', 8, '1', 4, '1', 3, '1', 4, 1, 2, 3, '84', '49', '20', '10', '5', '15', '9', '60'),
+(6, '05-02-2022 08:00:00\n', 35590, 177387, 81838, 3454, 4, 1, '04-02-2022', '15:00:04', '238', 3, 3, 'Tapping Regular', '02187942468', 'Informasi', 1, '', '', 7, 'L0 VOICE', 'A10436', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 4, '1', 6, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 40, 11, '100', '65', '20', '10', '5', '25', '10', '60'),
+(7, '07-02-2022 08:00:00', 35590, 177387, 81838, 3454, 4, 1, '06-02-2022', '09:00:31', '344\r\n', 2, 1, 'Tapping Regular', '081328787287', 'Komplain', 8, '', '', 7, 'L0 VOICE', 'A10438', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 8, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 5, 15, 8, '97', '62', '20', '10', '5', '25', '12', '60'),
+(8, '08-02-2022 08:00:00', 35590, 105384, 81838, 3454, 4, 1, '07-02-2022', '13:49:12', '282', 2, 3, 'Tapping Regular', '07115702770', 'Komplain', 9, '1', '48', 1, 'L0 VOICE', 'A10440', '1', 3, '1', 3, '1', 3, '1', 5, '0', 5, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 4, 15, 4, '97', '62', '20', '10', '5', '25', '15', '60'),
+(9, '10-02-2022 08:40:00\n', 35590, 155260, 98793, 3454, 4, 1, '09-02-2022', '18:32:51', '219', 9, 2, 'Tapping Regular', '08119999354', 'Informasi', 1, '', '', 7, 'L0 VOICE', 'A10448', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 3, '1', 3, '1', 5, 9, 40, 11, '100', '65', '20', '10', '5', '25', '15', '60'),
+(10, '10-02-2022 08:40:00', 35590, 177382, 66071, 3454, 4, 1, '09-02-2022', '11:19:32', '354', 6, 1, 'Tapping Regular', '081383266122', 'Komplain', 11, '', '', 7, 'L0 VOICE', 'A10454', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '0', 2, '0', 2, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 5, 24, 4, '94', '59', '20', '10', '5', '25', '9', '60'),
+(11, '04-03-2022 11:35:00', 76087, 188820, 64478, 27998, 2, 1, '01-03-2022', '15:51:19', '318', 2, 4, 'Tapping Regular', '081233989828', 'Komplain', 9, '', '', 7, 'L0 VOICE', 'A10475', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 20, 3, '100', '65', '20', '10', '5', '25', '15', '60'),
+(12, '04-03-2022 08:20:00', 35590, 178471, 96305, 3454, 4, 1, '02-03-2022', '13:38:38', '236', 4, 2, 'Tapping Regular', '073627000', 'Komplain', 8, '1', '80', 3, 'L0 VOICE', 'A10443', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 30, 6, '100', '65', '20', '10', '5', '25', '15', '60'),
+(13, '05-03-2022 09:00:00', 35590, 177382, 66071, 3454, 4, 1, '04-03-2022', '02:00:57', '231', 4, 2, 'Tapping Regular', '081585352045', 'Komplain', 8, '', '', 7, 'L0 VOICE', 'A10451', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 25, 4, '100', '65', '20', '10', '5', '25', '15', '60'),
+(14, '08-03-2022 13:30:00', 76087, 190422, 81353, 27998, 1, 1, '07-03-2022', '07:28:12', '384', 2, 1, 'Tapping Regular', '085338619620', 'Komplain', 7, '1', '69', 2, 'L0 VOICE', 'A10483', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 24, 4, '100', '65', '20', '', '5', '25', '15', '60'),
+(15, '08-03-2022 09:54:00', 76087, 190410, 64478, 27998, 1, 1, '07-03-2022', '15:25:38', '423', 3, 3, 'Tapping Regular\r\n', '08111718434', 'Permintaan', 18, '1', '23', 2, 'L0 VOICE', 'A10489', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '0', 7, '1', 4, '1', 6, '1', 8, '0', 2, '1', 3, '1', 4, 8, 29, 2, '77', '62', '0', '10', '5', '25', '12', '40'),
+(16, '06-02-2022 08:40:00', 35590, 178471, 96305, 3454, 4, 1, '05-01-2022', '09:16:29', '265', 4, 1, 'Tapping Regular', '0215658459', 'Komplain', 14, '1', '93', 3, 'L0 VOICE', 'A10444', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '0', 2, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 5, 25, 3, '97', '62', '20', '10', '5', '25', '12', '60'),
+(17, '07-04-2022 09:20:00', 35590, 177389, 81838, 3454, 4, 1, '06-01-2022', '09:04:03', '253', 1, 2, 'Tapping Regular', '0451454111', 'Komplain', 8, '1', '38', 3, 'L0 VOICE', 'A10455', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '', 6, '1', 8, '1', 4, '1', 3, '1', 4, 8, 34, 3, '100', '65', '20', '10', '5', '25', '15', '60'),
+(18, '07-04-2022 08:40:00', 35590, 155260, 98793, 3454, 4, 1, '06-04-2022', '14:36:00', '161', 4, 2, 'Tapping Regular', '0274385073', 'Informasi', 1, '', '', 7, 'LO VOICE', 'A10449', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 15, 20, '100', '65', '20', '10', '5', '25', '15', '60'),
+(19, '08-04-2022 08:00:00', 35590, 105384, 81838, 3454, 4, 1, '07-04-2022', '13:33:17', '176', 2, 3, 'Tapping Regular', '089529728000', 'Informasi', 2, '1', '22', 6, 'L0 VOICE', 'A10441', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 10, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 9, 24, 4, '100', '65', '20', '10', '5', '25', '15', '60'),
+(20, '08-04-2022 08:20:00', 35590, 155260, 98793, 3454, 4, 1, '07-04-2022', '11:31:57', '245', 4, 1, 'Tapping Regular', '085922280722', 'Komplain', 14, '1', '87', 4, 'L0 VOICE', 'A10447', '1', 3, '1', 3, '1', 3, '1', 5, '1', 8, '1', 2, '1', 4, '1', 6, '1', 8, '1', 4, '1', 3, '1', 4, 5, 13, 26, '97', '62', '20', '10', '5', '25', '25', '60');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_nilai_p`
+--
+
+CREATE TABLE `tb_nilai_p` (
+  `id_nilai` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `nilai_parameter` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_nilai_p`
+--
+
+INSERT INTO `tb_nilai_p` (`id_nilai`, `id_layanan`, `nilai_parameter`) VALUES
+(1, 1, 1),
+(2, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_penyebab_handling`
+--
+
+CREATE TABLE `tb_penyebab_handling` (
+  `id_handling` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `penyebab_handling_time` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_penyebab_handling`
+--
+
+INSERT INTO `tb_penyebab_handling` (`id_handling`, `id_layanan`, `penyebab_handling_time`) VALUES
+(1, 1, 'Pengecekan Data Pelanggan'),
+(2, 1, 'Pengecekan Jaringan Pelanggan'),
+(3, 1, 'Pembuatan Tiket Pelaporan'),
+(4, 1, 'Pencarian Jawaban'),
+(5, 1, 'Pengecekan Data & Jaringan Pelanggan'),
+(6, 1, 'Pengecekan Data, Jaringan, dan Pembuatan Tiket Pelaporan'),
+(7, 1, 'N/A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_periode_tapping`
+--
+
+CREATE TABLE `tb_periode_tapping` (
+  `id_periode` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `periode_tapping` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_periode_tapping`
+--
+
+INSERT INTO `tb_periode_tapping` (`id_periode`, `id_layanan`, `periode_tapping`) VALUES
+(1, 1, 'Periode 01-10'),
+(2, 1, 'Periode 11-20'),
+(3, 1, 'Periode 21-31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_a1`
+--
+
+CREATE TABLE `tb_p_a1` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_a1`
+--
+
+INSERT INTO `tb_p_a1` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, 'a. Salam pembuka diucapkan tidak jelas dan tidak benar atau salah satu'),
+(2, 1, 'b. Pickup Call (Greeting) lebih dari 3 detik'),
+(3, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_a2a`
+--
+
+CREATE TABLE `tb_p_a2a` (
+  `id` int(11) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_a2a`
+--
+
+INSERT INTO `tb_p_a2a` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, 'a. Tidak melakukan verifikasi secara benar dan lengkap sesuai dengan ketentuan yang berlaku'),
+(2, 1, 'b. Tidak menjelaskan alasan & tujuan dari proses verifikasi ketika pelanggan bertanya'),
+(3, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_a2b`
+--
+
+CREATE TABLE `tb_p_a2b` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_a2b`
+--
+
+INSERT INTO `tb_p_a2b` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, 'a. Tidak melakukan identifikasi secara benar dan lengkap sesuai dengan ketentuan yang berlaku'),
+(2, 1, 'b. Identifikasi tidak dilakukan sesuai dengan gejala yang dikeluhkan pelanggan'),
+(3, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_a3`
+--
+
+CREATE TABLE `tb_p_a3` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_a3`
+--
+
+INSERT INTO `tb_p_a3` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, 'a. Tidak melakukan konfirmasi kejelasan informasi kepada pelanggan pada akhir percakapan \"(tidak mengucapkan Apakah sudah cukup jelas Bapak/Ibu...?)\"'),
+(2, 1, 'b. Tidak menawarkan bantuan lain dengan sopan dan ramah, \"(Ada lagi yang dapat kami bantu?)\"'),
+(3, 1, 'c. Buddy closing yang tidak tepat'),
+(4, 1, 'Closing diucapkan tidak sesuai standar kalimat / Waktu'),
+(5, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_b1a`
+--
+
+CREATE TABLE `tb_p_b1a` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_b1a`
+--
+
+INSERT INTO `tb_p_b1a` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Bersikap Empathy dengan tidak mengucapkan permintaan maaf \"Mohon maaf atas ketidaknyamanannya\"'),
+(2, 1, '2a. Tanya berulang-ulang ke pelanggan karena tidak fokus | Mendengarkan Penuh Perhatian'),
+(3, 1, '2b. Tidak merespon pembicaraan pelanggan | Mendengarkan Penuh Perhatian'),
+(4, 1, '2c. Tidak menggunakan Magic Words | Mendengarkan Penuh Perhatian'),
+(5, 1, '2d. Memotong percakapan pelanggan tanpa meminta ijin terlebih dahulu | Mendengarkan Penuh Perhatian'),
+(6, 1, '2e. Tidak merespon dengan jawaban yang tepat | Mendengarkan Penuh Perhatian'),
+(7, 1, '2f. Terjadi keheningan / jeda (lebih dari 3 detik) | Mendengarkan Penuh Perhatian'),
+(8, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_b1b`
+--
+
+CREATE TABLE `tb_p_b1b` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_b1b`
+--
+
+INSERT INTO `tb_p_b1b` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Agent tidak bersikap profesional'),
+(2, 1, '2. Kurang Percaya Diri'),
+(3, 1, '2a. Intonasi agent terdengar tidak stabil, datar & ragu-ragu | Kurang Percaya Diri'),
+(4, 1, '2b. Suara agen terdengar lemah & kurang antusias | Kurang Percaya Diri'),
+(5, 1, '2c. Pengucapan kata-katanya terlalu cepat | Kurang Percaya Diri'),
+(6, 1, '2d. Pengucapan kata-katanya tidak sesuai dengan tata bahasa yang baik dan benar | Kurang Percaya Diri'),
+(7, 1, '2e. Artikulasi tidak jelas | Kurang Percaya Diri'),
+(8, 1, '2f. Menggunakan Logat Kedaerahan | Kurang Percaya Diri'),
+(9, 1, '2g. Menimbulkan suara asing pada saat melakukan percakapan. Contoh: Tertawa, Batuk, Bersin, dan berbicara dengan orang lain pada saat masih melakukan pelayanan kepada pelanggan. | Kurang Percaya Diri'),
+(10, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_b2a`
+--
+
+CREATE TABLE `tb_p_b2a` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_b2a`
+--
+
+INSERT INTO `tb_p_b2a` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Tidak menanyakan nama pelanggan di awal percakapan'),
+(2, 1, '2. Tidak menyapa pelanggan dengan proporsional, Misal : Tidak menggunakan kata sapaan Bapak / Ibu'),
+(3, 1, '3. Salah menyapa nama pelanggan'),
+(4, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_b2b`
+--
+
+CREATE TABLE `tb_p_b2b` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_b2b`
+--
+
+INSERT INTO `tb_p_b2b` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Menggunakan bahasa Indonesia/Inggris yang tidak baku atau bercampur bahasa daerah'),
+(2, 1, '2. Menggunakan atau mengulangi secara berlebihan kata-kata yang tidak perlu dan tidak tepat. Contoh: seperti itu, maaf, di sini, kita, perihal, untuk secara berlebihan'),
+(3, 1, '3. Menggunakan partikel bahasa gaul (slang particles)dan bergumam seperti: deh, dong, eh, kok, lho, nih, sih, tuh, yah, kalo, gitu, gini, e\'eh, mmhh, dll.'),
+(4, 1, '4. Menyebutkan angka dengan istilah double, tripple, kosong, lapan, dll.'),
+(5, 1, '5. Menggunakan istilah teknis yang tidak umum dipakai di layanan dan agent tidak menjelaskan pengertian istilah teknis tersebut pada calon pelanggan'),
+(6, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_b3`
+--
+
+CREATE TABLE `tb_p_b3` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_b3`
+--
+
+INSERT INTO `tb_p_b3` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Melakukan hold untuk case yang seharusnya tidak boleh di hold'),
+(2, 1, '2. Langsung melakukan hold tanpa meminta pelanggan menunggu'),
+(3, 1, '3. Langsung melakukan hold padahal belum mendapat respon dari pelanggan untuk kesediaan di hold'),
+(4, 1, '4. Tidak menyampaikan berapa menit waktu hold yang dibutuhkan'),
+(5, 1, '5. Hold lebih dari 2 menit'),
+(6, 1, '6. Tidak mengucapkan terima kasih setelah melakukan hold'),
+(7, 1, 'Melakukan hold tidak sesuai prosedur'),
+(8, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_c1`
+--
+
+CREATE TABLE `tb_p_c1` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_c1`
+--
+
+INSERT INTO `tb_p_c1` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Tidak membuat laporan di aplikasi Contact Care'),
+(2, 1, '2. Membuat laporan tapi tidak sesuai pengkategorian / tidak lengkap'),
+(3, 1, '3. Tidak melakukan pencatatan atau pemutakhiran data atas laporan berulang dari pelanggan'),
+(4, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_c2`
+--
+
+CREATE TABLE `tb_p_c2` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_c2`
+--
+
+INSERT INTO `tb_p_c2` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Tidak menindaklanjuti permintaan pelanggan atau memberikan informasi yang tidak akurat sehingga menimbulkan potensi komplain berikutnya'),
+(2, 1, '2. Tidak memberikan Panduan Trouble Shooting yang sesuai dengan Sympthom yang dikeluhkan pelanggan'),
+(3, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_p_c3`
+--
+
+CREATE TABLE `tb_p_c3` (
+  `id` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `parameter` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_p_c3`
+--
+
+INSERT INTO `tb_p_c3` (`id`, `id_layanan`, `parameter`) VALUES
+(1, 1, '1. Tidak menginformasikan nomor laporan kepada pelanggan'),
+(2, 1, '2. Tidak menginformasikan SLA sesuai ketetuan kepada pelanggan'),
+(3, 1, '3. Tidak merangkum dan mengkonfirmasi ulang sesuai permasalahan pelanggan'),
+(4, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_rekomendasi_untuk_agent`
+--
+
+CREATE TABLE `tb_rekomendasi_untuk_agent` (
+  `id_rekomendasi_untuk _agent` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `rekomendasi_untuk_agent` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_rekomendasi_untuk_agent`
+--
+
+INSERT INTO `tb_rekomendasi_untuk_agent` (`id_rekomendasi_untuk _agent`, `id_layanan`, `rekomendasi_untuk_agent`) VALUES
+(1, 1, 'Agent harus membaca panduan product knowledge'),
+(2, 1, 'Agent membaca script percakapan'),
+(3, 1, 'BIT PK dengan Team Leader'),
+(4, 1, 'Hearing Session'),
+(5, 1, 'Melakukan BIT dengan Team Leader'),
+(6, 1, 'Membuat note untuk jargon yg sering di ucapkan'),
+(7, 1, 'Refreshment Hardskill'),
+(8, 1, 'Refreshment Parameter'),
+(9, 1, 'Refreshment Softskill'),
+(10, 1, 'Taruh cermin di WS'),
+(11, 1, 'n/a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_roster_agent`
+--
+
+CREATE TABLE `tb_roster_agent` (
+  `id_roster` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `roster_agent` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_roster_agent`
+--
+
+INSERT INTO `tb_roster_agent` (`id_roster`, `id_layanan`, `roster_agent`) VALUES
+(1, 1, '06:00-15:00'),
+(2, 1, '07:00-16:00'),
+(3, 1, '08:00-17:00'),
+(4, 1, '09:00-18:00'),
+(5, 1, '10:00-19:00'),
+(6, 1, '11:00-20:00'),
+(7, 1, '13:00-22:00'),
+(8, 1, '13:30-22:30'),
+(9, 1, '14:00-23:00'),
+(10, 1, '22:00-07:00'),
+(11, 1, '23:00-08:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_sample_tapping`
+--
+
+CREATE TABLE `tb_sample_tapping` (
+  `id_sample` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `sample_tapping` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_sample_tapping`
+--
+
+INSERT INTO `tb_sample_tapping` (`id_sample`, `id_layanan`, `sample_tapping`) VALUES
+(1, 1, 'Jam Awal Online'),
+(2, 1, 'Jam Tengah Online'),
+(3, 1, 'Jam Akhir Online');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tenure_agent`
+--
+
+CREATE TABLE `tb_tenure_agent` (
+  `id_tenure` int(10) NOT NULL,
+  `id_layanan` int(10) NOT NULL,
+  `tenure_agent` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_tenure_agent`
+--
+
+INSERT INTO `tb_tenure_agent` (`id_tenure`, `id_layanan`, `tenure_agent`) VALUES
+(1, 1, 'A (1-3 Bulan)'),
+(2, 1, 'B (>3-6 Bulan)'),
+(3, 1, 'C (>6-12 Bulan)'),
+(4, 1, 'D (> 12 Bulan)');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tb_detail_interaksi`
+--
+ALTER TABLE `tb_detail_interaksi`
+  ADD PRIMARY KEY (`id_detail_interaksi`);
+
+--
+-- Indexes for table `tb_detail_non_conformity`
+--
+ALTER TABLE `tb_detail_non_conformity`
+  ADD PRIMARY KEY (`id_detail_non_conformity`);
+
+--
+-- Indexes for table `tb_jabatan`
+--
+ALTER TABLE `tb_jabatan`
+  ADD PRIMARY KEY (`id_jabatan`);
+
+--
+-- Indexes for table `tb_karyawan`
+--
+ALTER TABLE `tb_karyawan`
+  ADD PRIMARY KEY (`id_karyawan`);
+
+--
+-- Indexes for table `tb_kategori_non_conformity`
+--
+ALTER TABLE `tb_kategori_non_conformity`
+  ADD PRIMARY KEY (`id_kategori_non_conformity`);
+
+--
+-- Indexes for table `tb_layanan`
+--
+ALTER TABLE `tb_layanan`
+  ADD PRIMARY KEY (`id_layanan`);
+
+--
+-- Indexes for table `tb_master_qmscore`
+--
+ALTER TABLE `tb_master_qmscore`
+  ADD PRIMARY KEY (`id_master`);
+
+--
+-- Indexes for table `tb_nilai_p`
+--
+ALTER TABLE `tb_nilai_p`
+  ADD PRIMARY KEY (`id_nilai`);
+
+--
+-- Indexes for table `tb_penyebab_handling`
+--
+ALTER TABLE `tb_penyebab_handling`
+  ADD PRIMARY KEY (`id_handling`);
+
+--
+-- Indexes for table `tb_periode_tapping`
+--
+ALTER TABLE `tb_periode_tapping`
+  ADD PRIMARY KEY (`id_periode`);
+
+--
+-- Indexes for table `tb_p_a1`
+--
+ALTER TABLE `tb_p_a1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_a2a`
+--
+ALTER TABLE `tb_p_a2a`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_a2b`
+--
+ALTER TABLE `tb_p_a2b`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_a3`
+--
+ALTER TABLE `tb_p_a3`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_b1a`
+--
+ALTER TABLE `tb_p_b1a`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_b1b`
+--
+ALTER TABLE `tb_p_b1b`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_b2a`
+--
+ALTER TABLE `tb_p_b2a`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_b2b`
+--
+ALTER TABLE `tb_p_b2b`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_b3`
+--
+ALTER TABLE `tb_p_b3`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_c1`
+--
+ALTER TABLE `tb_p_c1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_c2`
+--
+ALTER TABLE `tb_p_c2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_p_c3`
+--
+ALTER TABLE `tb_p_c3`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_rekomendasi_untuk_agent`
+--
+ALTER TABLE `tb_rekomendasi_untuk_agent`
+  ADD PRIMARY KEY (`id_rekomendasi_untuk _agent`);
+
+--
+-- Indexes for table `tb_roster_agent`
+--
+ALTER TABLE `tb_roster_agent`
+  ADD PRIMARY KEY (`id_roster`);
+
+--
+-- Indexes for table `tb_sample_tapping`
+--
+ALTER TABLE `tb_sample_tapping`
+  ADD PRIMARY KEY (`id_sample`);
+
+--
+-- Indexes for table `tb_tenure_agent`
+--
+ALTER TABLE `tb_tenure_agent`
+  ADD PRIMARY KEY (`id_tenure`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tb_detail_interaksi`
+--
+ALTER TABLE `tb_detail_interaksi`
+  MODIFY `id_detail_interaksi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `tb_detail_non_conformity`
+--
+ALTER TABLE `tb_detail_non_conformity`
+  MODIFY `id_detail_non_conformity` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT for table `tb_jabatan`
+--
+ALTER TABLE `tb_jabatan`
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `tb_karyawan`
+--
+ALTER TABLE `tb_karyawan`
+  MODIFY `id_karyawan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=412;
+
+--
+-- AUTO_INCREMENT for table `tb_kategori_non_conformity`
+--
+ALTER TABLE `tb_kategori_non_conformity`
+  MODIFY `id_kategori_non_conformity` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tb_layanan`
+--
+ALTER TABLE `tb_layanan`
+  MODIFY `id_layanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_master_qmscore`
+--
+ALTER TABLE `tb_master_qmscore`
+  MODIFY `id_master` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `tb_nilai_p`
+--
+ALTER TABLE `tb_nilai_p`
+  MODIFY `id_nilai` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tb_penyebab_handling`
+--
+ALTER TABLE `tb_penyebab_handling`
+  MODIFY `id_handling` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tb_periode_tapping`
+--
+ALTER TABLE `tb_periode_tapping`
+  MODIFY `id_periode` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_p_a1`
+--
+ALTER TABLE `tb_p_a1`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_p_a2a`
+--
+ALTER TABLE `tb_p_a2a`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_p_a2b`
+--
+ALTER TABLE `tb_p_a2b`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_p_a3`
+--
+ALTER TABLE `tb_p_a3`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tb_p_b1a`
+--
+ALTER TABLE `tb_p_b1a`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tb_p_b1b`
+--
+ALTER TABLE `tb_p_b1b`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `tb_p_b2a`
+--
+ALTER TABLE `tb_p_b2a`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_p_b2b`
+--
+ALTER TABLE `tb_p_b2b`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tb_p_b3`
+--
+ALTER TABLE `tb_p_b3`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tb_p_c1`
+--
+ALTER TABLE `tb_p_c1`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_p_c2`
+--
+ALTER TABLE `tb_p_c2`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_p_c3`
+--
+ALTER TABLE `tb_p_c3`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tb_rekomendasi_untuk_agent`
+--
+ALTER TABLE `tb_rekomendasi_untuk_agent`
+  MODIFY `id_rekomendasi_untuk _agent` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tb_roster_agent`
+--
+ALTER TABLE `tb_roster_agent`
+  MODIFY `id_roster` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tb_sample_tapping`
+--
+ALTER TABLE `tb_sample_tapping`
+  MODIFY `id_sample` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_tenure_agent`
+--
+ALTER TABLE `tb_tenure_agent`
+  MODIFY `id_tenure` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

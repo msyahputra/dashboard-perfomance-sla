@@ -1,0 +1,12 @@
+CRITICAL - 2022-06-16 23:17:20 --> View themes, no current section.
+#0 C:\xampp\htdocs\backend2\backend\backend\app\Views\qmscore\voice.php(1038): CodeIgniter\View\View->endSection('')
+#1 C:\xampp\htdocs\backend2\backend\backend\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\backend2\backend\backend\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\backend2\backend\backend\system\Common.php(1089): CodeIgniter\View\View->render('qmscore/voice', Array, true)
+#4 C:\xampp\htdocs\backend2\backend\backend\app\Controllers\QmScore.php(14): view('qmscore/voice')
+#5 C:\xampp\htdocs\backend2\backend\backend\system\CodeIgniter.php(832): App\Controllers\Qmscore->voice()
+#6 C:\xampp\htdocs\backend2\backend\backend\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Qmscore))
+#7 C:\xampp\htdocs\backend2\backend\backend\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\backend2\backend\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\backend2\backend\backend\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
